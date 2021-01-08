@@ -2,8 +2,16 @@ import logo from './logo.svg';
 import './App.css';
 import { React, Component } from 'react';
 import axios from 'axios';
+//import { gapi } from 'gapi-script';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isSignedIn: false
+        }
+    }
+
     youtubeSearch() {
         var keyword = document.getElementById("search-keyword").value;
         if (keyword === "") {
@@ -17,12 +25,29 @@ class App extends Component {
                 'part': 'snippet',
                 'maxResults': 10,
                 'key': process.env.REACT_APP_YOUTUBE_API_KEY,
-                'q': keyword
+                'q': keyword,
+                'type': 'video'
             }
         })
             .then(res => {
-                console.log(res.data.items);
-            });
+                console.log(res);
+                var videoList = res.data.items;
+                var vidIdList = [];
+                for (var i = 0; i < videoList.length; i++) {
+                    var vidId = videoList[i].id.videoId;
+                    vidIdList.push(vidId);
+                }
+                return axios.get(`https://youtube.googleapis.com/youtube/v3/videos`, {
+                    params: {
+                        "part": 'statistics',
+                        "id": vidIdList.join(),
+                        "key": process.env.REACT_APP_YOUTUBE_API_KEY,
+                    }
+                })
+                    .then(result => {
+                        console.log(result);
+                    });
+            })
     }
 
     render() {
