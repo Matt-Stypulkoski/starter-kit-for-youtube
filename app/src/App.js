@@ -5,12 +5,6 @@ import axios from 'axios';
 //import { gapi } from 'gapi-script';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isSignedIn: false
-        }
-    }
 
     youtubeSearch() {
         var keyword = document.getElementById("search-keyword").value;
