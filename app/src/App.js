@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import { React, Component } from 'react';
 import axios from 'axios';
-//import { gapi } from 'gapi-script';
 
 class App extends Component {
 
@@ -47,22 +45,8 @@ class App extends Component {
     render() {
         return (
             <div className="App">            
-                <header className="App-header">
-                    <input type="text" id="search-keyword" placeholder="Input Keyword Here" required />
-                    <button onClick={this.youtubeSearch}>Search</button>
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
+                <input type="text" id="search-keyword" placeholder="Input Keyword Here" required />
+                <button onClick={this.youtubeSearch}>Search</button>
             </div>
         );
     }
