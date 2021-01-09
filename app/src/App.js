@@ -8,6 +8,11 @@ class App extends Component {
         this.youtubeSearch = this.youtubeSearch.bind(this);
     }
 
+    componentDidMount() {
+        // Just for testing displaying results. Uncomment to immediately search a keyword.
+        //this.youtubeSearch();
+    }
+
     displayResults(results) {
         let resultsContainer = document.getElementById("results-container");
         let resultsContainerChildren = resultsContainer.children;
@@ -17,22 +22,36 @@ class App extends Component {
 
         for (let vid of results) {
             let videoListElement = document.createElement("li");
+            videoListElement.className = "video-list-element";
+
+            let videoListElementContainer = document.createElement("div");
+            videoListElementContainer.className = "video-list-element-container";
+
             let videoDataContainer = document.createElement("div");
-            videoListElement.appendChild(videoDataContainer);
+            videoDataContainer.className = "video-data-container";
 
-            const views = document.createElement("p");
-            views.innerHTML = vid.statistics.viewCount;
+            videoListElementContainer.appendChild(videoDataContainer);
+            videoListElement.appendChild(videoListElementContainer);
+            
 
-            const title = document.createElement("p");
+
+
+            const title = document.createElement("h3");
             title.innerHTML = vid.snippet.title;
+            title.className = "vid-title";
+
+            const views = document.createElement("h4");
+            views.innerHTML = `Views: ${vid.statistics.viewCount}`;
+            views.className = "vid-views";
 
             const thumbnailURL = document.createElement("img");
             thumbnailURL.src = vid.snippet.thumbnails.high.url;
-            thumbnailURL.alt = "Thumbnail for {vid.snippet.title}";
+            thumbnailURL.alt = `Thumbnail for ${vid.snippet.title}`;
+            thumbnailURL.className = "vid-thumbnail";
 
             videoDataContainer.appendChild(title);
             videoDataContainer.appendChild(views);
-            videoDataContainer.appendChild(thumbnailURL);
+            videoListElementContainer.appendChild(thumbnailURL);
 
             resultsList.appendChild(videoListElement);
         }
@@ -81,8 +100,8 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">            
-                <input type="text" id="search-keyword" placeholder="Input Keyword Here" required />
+            <div className="App">
+                <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="test" />
                 <button onClick={this.youtubeSearch}>Search</button>
                 <div className="results-container" id="results-container">
                     <p className="placeholder-text">Search for a keyword to display results</p>
