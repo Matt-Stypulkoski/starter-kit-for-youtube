@@ -6,11 +6,28 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.youtubeSearch = this.youtubeSearch.bind(this);
+        this.simplifyLargeNumber = this.simplifyLargeNumber.bind(this);
+        this.state = {
+            averageViews: 0,
+        }
     }
 
     componentDidMount() {
         // Just for testing displaying results. Uncomment to immediately search a keyword.
-        this.youtubeSearch();
+        //this.youtubeSearch();
+    }
+
+    simplifyLargeNumber(num) {
+        if (num / 1000000000 >= 1) {
+            return `${Math.ceil(num / 10000000000)}B`;
+        }
+        if (num / 1000000 >= 1) {
+            return `${Math.ceil(num / 1000000)}M`;
+        }
+        if (num / 1000 >= 10) {
+            return `${Math.ceil(num / 1000)}K`;
+        }
+        return num
     }
 
     displayResults(results) {
@@ -19,6 +36,8 @@ class App extends Component {
         resultsContainerChildren[0].remove();
         let resultsList = document.createElement("ul");
 
+        var averageViews = 0;
+        var sortedVidList = []
 
         for (let vid of results) {
             let videoListElement = document.createElement("li");
@@ -32,9 +51,6 @@ class App extends Component {
 
             videoListElementContainer.appendChild(videoDataContainer);
             videoListElement.appendChild(videoListElementContainer);
-            
-
-
 
             const title = document.createElement("h3");
             title.innerHTML = vid.snippet.title;
@@ -43,6 +59,8 @@ class App extends Component {
             const views = document.createElement("h4");
             views.innerHTML = `Views: ${vid.statistics.viewCount}`;
             views.className = "vid-views";
+
+            averageViews += parseInt(vid.statistics.viewCount);
 
             const thumbnailURL = document.createElement("img");
             thumbnailURL.src = vid.snippet.thumbnails.high.url;
@@ -53,9 +71,18 @@ class App extends Component {
             videoDataContainer.appendChild(views);
             videoListElementContainer.appendChild(thumbnailURL);
 
-            resultsList.appendChild(videoListElement);
+            sortedVidList.push([videoListElement, vid.statistics.viewCount]);
         }
 
+        sortedVidList = sortedVidList.sort(function (a, b) {
+            return b[1] - a[1];
+        });
+
+        for (let vidArr of sortedVidList) {
+            resultsList.appendChild(vidArr[0]);
+        }
+
+        this.setState({ averageViews: averageViews / sortedVidList.length });
         resultsContainer.appendChild(resultsList);
     }
 
@@ -70,11 +97,10 @@ class App extends Component {
         return axios.get(`https://youtube.googleapis.com/youtube/v3/search`, {
             params: {
                 'part': 'snippet',
-                'maxResults': 10,
+                'maxResults': 50,
                 'key': process.env.REACT_APP_YOUTUBE_API_KEY,
                 'q': keyword,
                 'type': 'video',
-                'order': 'viewCount'
             }
         })
             .then(res => {
@@ -99,13 +125,23 @@ class App extends Component {
             })
     }
 
+
+
     render() {
         return (
             <div className="App">
-                <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="test" />
-                <button onClick={this.youtubeSearch}>Search</button>
+                <header className="search-header">
+                    <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="pokemon" />
+                    <button onClick={this.youtubeSearch}>Search</button>
+                </header>
                 <div className="results-container" id="results-container">
                     <p className="placeholder-text">Search for a keyword to display results</p>
+                </div>
+                <div className="overview-stats-container">
+                    <div className="total-views-container">
+                        <h2>{this.simplifyLargeNumber(this.state.averageViews)}</h2>
+                        <h4>Average Views</h4>
+                    </div>
                 </div>
             </div>
         );
