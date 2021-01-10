@@ -10,7 +10,7 @@ class App extends Component {
 
     componentDidMount() {
         // Just for testing displaying results. Uncomment to immediately search a keyword.
-        //this.youtubeSearch();
+        this.youtubeSearch();
     }
 
     displayResults(results) {
@@ -73,7 +73,8 @@ class App extends Component {
                 'maxResults': 10,
                 'key': process.env.REACT_APP_YOUTUBE_API_KEY,
                 'q': keyword,
-                'type': 'video'
+                'type': 'video',
+                'order': 'viewCount'
             }
         })
             .then(res => {
