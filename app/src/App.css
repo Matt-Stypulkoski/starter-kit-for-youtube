@@ -22,8 +22,13 @@
     padding: 0;
 }
 
+.popular-videos-header {
+    text-align: left;
+}
+
 .video-list-element-container {
     display: flex;
+    border: 10px solid white;
 }
 
 .video-data-container {
@@ -31,6 +36,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     width: 50%;
+    text-align: left;
 }
 
 .video-list-element {
@@ -66,4 +72,5 @@
     margin-left: 5%;
     margin-right: 5%;
     width: 20%;
+    border: 5px solid white;
 }

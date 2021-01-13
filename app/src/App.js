@@ -142,7 +142,7 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="search-header">
-                    <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="pokemon" />
+                    <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
                     <button onClick={this.youtubeSearch}>Search</button>
                 </header>
                 <div className="overview-stats-container">
