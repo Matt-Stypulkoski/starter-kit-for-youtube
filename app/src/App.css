@@ -18,6 +18,10 @@
     width: 75%;
 }
 
+.results-list {
+    padding: 0;
+}
+
 .video-list-element-container {
     display: flex;
 }
@@ -29,8 +33,9 @@
     width: 50%;
 }
 
-.video-list-element { 
+.video-list-element {
     list-style-type: none;
+    margin-bottom: 5%;
 }
 
 .vid-title {

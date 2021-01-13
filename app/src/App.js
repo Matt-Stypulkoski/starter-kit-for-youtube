@@ -36,7 +36,12 @@ class App extends Component {
         let resultsContainer = document.getElementById("results-container");
         let resultsContainerChildren = resultsContainer.children;
         resultsContainerChildren[0].remove();
+        let resultsHeader = document.createElement("h3");
+        resultsHeader.innerHTML = "Popular Videos";
+        resultsHeader.className = "popular-videos-header";
         let resultsList = document.createElement("ul");
+        resultsList.className = "results-list";
+        resultsList.appendChild(resultsHeader);
 
         var totalViews = 0;
         var sortedVidList = []
