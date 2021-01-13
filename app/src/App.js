@@ -9,6 +9,8 @@ class App extends Component {
         this.simplifyLargeNumber = this.simplifyLargeNumber.bind(this);
         this.state = {
             averageViews: 0,
+            totalViews: 0,
+            keyword: ''
         }
     }
 
@@ -36,7 +38,7 @@ class App extends Component {
         resultsContainerChildren[0].remove();
         let resultsList = document.createElement("ul");
 
-        var averageViews = 0;
+        var totalViews = 0;
         var sortedVidList = []
 
         for (let vid of results) {
@@ -60,7 +62,7 @@ class App extends Component {
             views.innerHTML = `Views: ${vid.statistics.viewCount}`;
             views.className = "vid-views";
 
-            averageViews += parseInt(vid.statistics.viewCount);
+            totalViews += parseInt(vid.statistics.viewCount);
 
             const thumbnailURL = document.createElement("img");
             thumbnailURL.src = vid.snippet.thumbnails.high.url;
@@ -82,7 +84,10 @@ class App extends Component {
             resultsList.appendChild(vidArr[0]);
         }
 
-        this.setState({ averageViews: averageViews / sortedVidList.length });
+        this.setState({
+            averageViews: totalViews / sortedVidList.length,
+            totalViews: totalViews
+        });
         resultsContainer.appendChild(resultsList);
     }
 
@@ -92,6 +97,7 @@ class App extends Component {
             console.log("You must input a keyword to search for.");
             return
         }
+        this.setState({ keyword: keyword });
         console.log(`Searching through youtube for ${keyword}`);
 
         return axios.get(`https://youtube.googleapis.com/youtube/v3/search`, {
@@ -134,14 +140,21 @@ class App extends Component {
                     <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="pokemon" />
                     <button onClick={this.youtubeSearch}>Search</button>
                 </header>
-                <div className="results-container" id="results-container">
-                    <p className="placeholder-text">Search for a keyword to display results</p>
-                </div>
                 <div className="overview-stats-container">
-                    <div className="total-views-container">
+                    <div className="single-stats-container">
                         <h2>{this.simplifyLargeNumber(this.state.averageViews)}</h2>
                         <h4>Average Views</h4>
                     </div>
+                    <div className="single-stats-container">
+                        <h2>{this.simplifyLargeNumber(this.state.totalViews)}</h2>
+                        <h4>Total Views</h4>
+                    </div>
+                    <div className="single-stats-container">
+                        <p>Videos about {this.state.keyword} are popular</p>
+                    </div>
+                </div>
+                <div className="results-container" id="results-container">
+                    <p className="placeholder-text">Search for a keyword to display results</p>
                 </div>
             </div>
         );
