@@ -26,7 +26,7 @@
     text-align: left;
 }
 
-.video-list-element-container {
+.video-result-container {
     display: flex;
     border: 10px solid white;
 }
@@ -44,27 +44,25 @@
     margin-bottom: 5%;
 }
 
-.vid-title {
-    width: 50%;
+.video-title {
+    width: 75%;
     align-content: center;
     justify-content: center;
     margin: auto;
 }
 
-.vid-views {
-    width: 50%;
+.video-views {
+    width: 75%;
     margin: auto;
 }
 
-.vid-thumbnail {
+.video-thumbnail {
     width:50%;
 }
 
 .overview-stats-container {
-    width: 100%;
+    width: 90%;
     display: flex;
-    padding-left: 5%;
-    padding-right: 5%;
     justify-content: space-evenly;
 }
 

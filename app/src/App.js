@@ -1,19 +1,21 @@
 import './App.css';
 import { React, Component } from 'react';
-import axios from 'axios';
-import VideoResult from './components/VideoResult.js';
 import youtubeSearch from './scripts/youtubeSearch.js';
-import displayResults from './scripts/displayResults.js';
+import sortResults from './scripts/sortResults.js';
+import VideoResultContainer from './components/VideoResultContainer';
 
 class App extends Component {
     constructor(props) {
         super(props);
+        //this.displayResults = this.displayResults.bind(this)
         this.runSearch = this.runSearch.bind(this);
         this.simplifyLargeNumber = this.simplifyLargeNumber.bind(this);
         this.state = {
             averageViews: 0,
             totalViews: 0,
-            keyword: ''
+            keyword: '',
+            videoResults: [],
+            hasSearched: false
         }
     }
 
@@ -29,8 +31,6 @@ class App extends Component {
             count += 1
         }
         switch (count) {
-            case 0:
-                return num;
             case 1:
                 num = Math.round(num * 10) / 10;
                 return `${num}K`
@@ -40,6 +40,8 @@ class App extends Component {
             case 3:
                 num = Math.round(num * 10) / 10;
                 return `${num}B`
+            default:
+                return num
         }
     }
 
@@ -49,15 +51,27 @@ class App extends Component {
         this.setState({ keyword: keyword });
         return youtubeSearch(keyword)
             .then(results => {
-                let viewResults = displayResults(results);
+                let viewResults = sortResults(results);
                 this.setState({
                     totalViews: viewResults[0],
-                    averageViews: viewResults[1]
+                    averageViews: viewResults[1],
+                    videoResults: viewResults[2],
+                    hasSearched: true
                 });
+
+                console.log(this.state);
             });
     }
 
     render() {
+        let resultsContainer;
+        if (!this.state.hasSearched) {
+            resultsContainer = <p className="placeholder-text">Search for a keyword to display results</p>
+        } else {
+            resultsContainer = <VideoResultContainer videoList={this.state.videoResults} />
+        }
+
+
         return (
             <div className="App">
                 <header className="search-header">
@@ -77,9 +91,7 @@ class App extends Component {
                         <p>Videos about {this.state.keyword} are popular</p>
                     </div>
                 </div>
-                <div className="results-container" id="results-container">
-                    <p className="placeholder-text">Search for a keyword to display results</p>
-                </div>
+                {resultsContainer}
             </div>
         );
     }
