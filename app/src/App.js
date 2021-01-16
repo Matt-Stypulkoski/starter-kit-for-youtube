@@ -11,12 +11,14 @@ class App extends Component {
         this.runSearch = this.runSearch.bind(this);
         this.getTodaysDate = this.getTodaysDate.bind(this);
         this.simplifyLargeNumber = this.simplifyLargeNumber.bind(this);
+        this.toggleDateField = this.toggleDateField.bind(this);
         this.state = {
             averageViews: 0,
             totalViews: 0,
             keyword: '',
             videoResults: [],
-            hasSearched: false
+            hasSearched: false,
+            useDateRange: false
         }
     }
 
@@ -67,6 +69,11 @@ class App extends Component {
         return `${year}-${month}-${day}`
     }
 
+    toggleDateField() {
+        this.setState({ useDateRange: !this.state.useDateRange });
+        console.log(this.state.useDateRange);
+    }
+
     render() {
         let resultsContainer;
         if (!this.state.hasSearched) {
@@ -74,15 +81,31 @@ class App extends Component {
         } else {
             resultsContainer = <VideoResultContainer videoList={this.state.videoResults} />
         }
+
+        let dateRangeContainer;
+        if (!this.state.useDateRange) {
+            dateRangeContainer =
+                <div>
+                    <label htmlFor="use-date">Filter by Date Range:</label>
+                    <input type="checkbox" id="use-date" onChange={(event) => this.toggleDateField()} />
+                </div>
+        } else {
+            dateRangeContainer =
+                <div>
+                    <label htmlFor="use-date">Filter by Date Range:</label>
+                    <input type="checkbox" id="use-date" onChange={(event) => this.toggleDateField()} />
+                    <label htmlFor="start-date">Posted After:</label>
+                    <input type="date" id="start-date" defaultValue={this.getTodaysDate()} />
+                    <label htmlFor="start-date">Posted Before:</label>
+                    <input type="date" id="end-date" defaultValue={this.getTodaysDate()} />
+                </div>
+        }
         return (
             <div className="App">
                 <header className="search-header">
                     <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
                     <button onClick={this.runSearch}>Search</button>
-                    <label htmlFor="start-date">Posted After:</label>
-                    <input type="date" id="start-date" defaultValue={this.getTodaysDate()} />
-                    <label htmlFor="start-date">Posted Before:</label>
-                    <input type="date" id="end-date" defaultValue={this.getTodaysDate()} />
+                    {dateRangeContainer}
                 </header>
                 <StatBoxContainer statBoxList={[[this.simplifyLargeNumber(this.state.averageViews), "Average Views"],
                                                 [this.simplifyLargeNumber(this.state.totalViews), "Total Views"],
