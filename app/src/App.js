@@ -1,6 +1,6 @@
 import './App.css';
 import { React, Component } from 'react';
-import youtubeSearch from './scripts/youtubeSearch.js';
+import { youtubeSearch, youtubeSearchWithDateFilter } from './scripts/youtubeapi.js';
 import sortResults from './scripts/sortResults.js';
 import VideoResultContainer from './components/VideoResultContainer.js';
 import StatBoxContainer from './components/StatBoxContainer.js'
@@ -47,6 +47,24 @@ class App extends Component {
         const keyword = document.getElementById("search-keyword").value;
         console.log(keyword);
         this.setState({ keyword: keyword });
+        if (this.state.useDateRange) {
+            const publishedAfter = document.getElementById("start-date").value;
+            const publishedBefore = document.getElementById("end-date").value;
+
+            return youtubeSearchWithDateFilter(keyword, publishedAfter, publishedBefore)
+                .then(results => {
+                    console.log("SEARCHED WITH DATES");
+                    let viewResults = sortResults(results);
+                    this.setState({
+                        totalViews: viewResults[0],
+                        averageViews: viewResults[1],
+                        videoResults: viewResults[2],
+                        hasSearched: true
+                    });
+
+                    console.log(this.state);
+                });
+        }
         return youtubeSearch(keyword)
             .then(results => {
                 let viewResults = sortResults(results);
