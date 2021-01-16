@@ -9,6 +9,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.runSearch = this.runSearch.bind(this);
+        this.getTodaysDate = this.getTodaysDate.bind(this);
         this.simplifyLargeNumber = this.simplifyLargeNumber.bind(this);
         this.state = {
             averageViews: 0,
@@ -58,6 +59,14 @@ class App extends Component {
             });
     }
 
+    getTodaysDate() {
+        let today = new Date();
+        let day = String(today.getDate()).padStart(2, '0');
+        let month = String(today.getMonth() + 1).padStart(2, '0');
+        let year = today.getFullYear();
+        return `${year}-${month}-${day}`
+    }
+
     render() {
         let resultsContainer;
         if (!this.state.hasSearched) {
@@ -65,12 +74,15 @@ class App extends Component {
         } else {
             resultsContainer = <VideoResultContainer videoList={this.state.videoResults} />
         }
-
         return (
             <div className="App">
                 <header className="search-header">
                     <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
-                    <button onClick={this.runSearch}> Search</button>
+                    <button onClick={this.runSearch}>Search</button>
+                    <label htmlFor="start-date">Posted After:</label>
+                    <input type="date" id="start-date" defaultValue={this.getTodaysDate()} />
+                    <label htmlFor="start-date">Posted Before:</label>
+                    <input type="date" id="end-date" defaultValue={this.getTodaysDate()} />
                 </header>
                 <StatBoxContainer statBoxList={[[this.simplifyLargeNumber(this.state.averageViews), "Average Views"],
                                                 [this.simplifyLargeNumber(this.state.totalViews), "Total Views"],
