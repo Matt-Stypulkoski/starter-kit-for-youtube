@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 function youtubeSearch(keyword) {
+    // For now if no keyword is given, send an alert to browser. Need to change in future.
     if (keyword === "") {
         console.log("You must input a keyword to search for.");
-        return
+        return Promise.reject(new Error("You must input a keyword to search for."))
     }
     console.log(`Searching through youtube for ${keyword}`);
 
@@ -41,15 +42,16 @@ function youtubeSearch(keyword) {
 }
 
 function youtubeSearchWithDateFilter(keyword, publishedAfter, publishedBefore) {
+    // For now if no keyword is given, send an alert to browser. Need to change in future.
+    if (keyword === "") {
+        console.log("You must input a keyword to search for.");
+        return Promise.reject(new Error("You must input a keyword to search for."))
+    }
+    console.log(`Searching through youtube for ${keyword}`);
+
     // Fix formatting of parameters to match what youtube api wants
     publishedAfter += 'T00:00:00Z';
     publishedBefore += 'T00:00:00Z';
-
-    if (keyword === "") {
-        console.log("You must input a keyword to search for.");
-        return
-    }
-    console.log(`Searching through youtube for ${keyword}`);
 
     return axios.get(`https://youtube.googleapis.com/youtube/v3/search`, {
         params: {

@@ -63,7 +63,8 @@ class App extends Component {
                     });
 
                     console.log(this.state);
-                });
+                })
+                .catch(err => alert(err));;
         }
         return youtubeSearch(keyword)
             .then(results => {
@@ -76,7 +77,8 @@ class App extends Component {
                 });
 
                 console.log(this.state);
-            });
+            })
+            .catch(err => alert(err));
     }
 
     getTodaysDate() {
@@ -89,10 +91,10 @@ class App extends Component {
 
     toggleDateField() {
         this.setState({ useDateRange: !this.state.useDateRange });
-        console.log(this.state.useDateRange);
     }
 
     render() {
+        console.log(this.state);
         let resultsContainer;
         if (!this.state.hasSearched) {
             resultsContainer = <p className="placeholder-text">Search for a keyword to display results</p>
@@ -121,7 +123,7 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="search-header">
-                    <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
+                    <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" required />
                     <button onClick={this.runSearch}>Search</button>
                     {dateRangeContainer}
                 </header>
