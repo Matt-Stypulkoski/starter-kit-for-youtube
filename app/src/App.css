@@ -60,13 +60,13 @@
     width:50%;
 }
 
-.overview-stats-container {
+.stat-box-container {
     width: 90%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.single-stats-container {
+.stat-box {
     margin-left: 5%;
     margin-right: 5%;
     width: 20%;

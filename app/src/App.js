@@ -2,12 +2,12 @@ import './App.css';
 import { React, Component } from 'react';
 import youtubeSearch from './scripts/youtubeSearch.js';
 import sortResults from './scripts/sortResults.js';
-import VideoResultContainer from './components/VideoResultContainer';
+import VideoResultContainer from './components/VideoResultContainer.js';
+import StatBoxContainer from './components/StatBoxContainer.js'
 
 class App extends Component {
     constructor(props) {
         super(props);
-        //this.displayResults = this.displayResults.bind(this)
         this.runSearch = this.runSearch.bind(this);
         this.simplifyLargeNumber = this.simplifyLargeNumber.bind(this);
         this.state = {
@@ -19,14 +19,9 @@ class App extends Component {
         }
     }
 
-    componentDidMount() {
-        // Just for testing displaying results. Uncomment to immediately search a keyword.
-        //this.youtubeSearch();
-    }
-
     simplifyLargeNumber(num) {
         let count = 0;
-        while ((num > 1000) && (count < 3)) {
+        while ((num > 999) && (count < 3)) {
             num /= 1000;
             count += 1
         }
@@ -71,26 +66,15 @@ class App extends Component {
             resultsContainer = <VideoResultContainer videoList={this.state.videoResults} />
         }
 
-
         return (
             <div className="App">
                 <header className="search-header">
                     <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
                     <button onClick={this.runSearch}> Search</button>
                 </header>
-                <div className="overview-stats-container">
-                    <div className="single-stats-container">
-                        <h2>{this.simplifyLargeNumber(this.state.averageViews)}</h2>
-                        <h4>Average Views</h4>
-                    </div>
-                    <div className="single-stats-container">
-                        <h2>{this.simplifyLargeNumber(this.state.totalViews)}</h2>
-                        <h4>Total Views</h4>
-                    </div>
-                    <div className="single-stats-container">
-                        <p>Videos about {this.state.keyword} are popular</p>
-                    </div>
-                </div>
+                <StatBoxContainer statBoxList={[[this.simplifyLargeNumber(this.state.averageViews), "Average Views"],
+                                                [this.simplifyLargeNumber(this.state.totalViews), "Total Views"],
+                                                [this.simplifyLargeNumber(this.state.popularity), "Overall Interest"]]} />
                 {resultsContainer}
             </div>
         );
