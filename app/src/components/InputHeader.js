@@ -44,8 +44,10 @@ class InputHeader extends Component {
     render() {
         return (
             <header className="search-header">
-                <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
-                <button onClick={this.runSearch}>Search</button>
+                <span className="search-container">
+                    <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
+                    <button onClick={this.runSearch}>Search</button>
+                </span>
                 <DateInput onChange={this.toggleDateField} useDateRange={this.state.useDateRange} />
             </header>
         )

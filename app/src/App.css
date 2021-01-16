@@ -12,6 +12,16 @@
 
 .search-header {
     width: 100%;
+    display: flex;
+}
+
+.search-container {
+    width: 30%;
+}
+
+.date-container {
+    width: 70%;
+    text-align: left;
 }
 
 .results-container {
