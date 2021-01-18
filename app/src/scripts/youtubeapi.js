@@ -88,4 +88,16 @@ function youtubeSearchWithDateFilter(keyword, publishedAfter, publishedBefore) {
         })
 }
 
-export { youtubeSearch, youtubeSearchWithDateFilter };
+function getYoutubeContentRegions() {
+    return axios.get(`https://youtube.googleapis.com/youtube/v3/i18nRegions`, {
+        params: {
+            "part": "snippet",
+            "key": process.env.REACT_APP_YOUTUBE_API_KEY
+        }
+    })
+        .then((result) => {
+            return result.data.items;
+        })
+}
+
+export { youtubeSearch, youtubeSearchWithDateFilter, getYoutubeContentRegions };
