@@ -2,6 +2,7 @@ import { React, Component } from 'react';
 import DateInput from './DateInput.js';
 import { youtubeSearch, youtubeSearchWithDateFilter } from '../scripts/youtubeapi.js';
 import sortResults from '../scripts/sortResults.js';
+import RegionSelection from './RegionSelection.js';
 
 class InputHeader extends Component {
     constructor(props) {
@@ -49,6 +50,7 @@ class InputHeader extends Component {
                     <button onClick={this.runSearch}>Search</button>
                 </span>
                 <DateInput onChange={this.toggleDateField} useDateRange={this.state.useDateRange} />
+                <RegionSelection />
             </header>
         )
     }

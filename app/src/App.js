@@ -1,9 +1,7 @@
 import './App.css';
 import { React, Component } from 'react';
-import { youtubeSearch, youtubeSearchWithDateFilter } from './scripts/youtubeapi.js';
-import sortResults from './scripts/sortResults.js';
 import VideoResultContainer from './components/VideoResultContainer.js';
-import StatBoxContainer from './components/StatBoxContainer.js'
+import StatBoxContainer from './components/StatBoxContainer.js';
 import InputHeader from './components/InputHeader.js';
 
 class App extends Component {

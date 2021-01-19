@@ -82,3 +82,7 @@
     width: 20%;
     border: 5px solid white;
 }
+
+.region-list {
+    list-style-type: none;
+}

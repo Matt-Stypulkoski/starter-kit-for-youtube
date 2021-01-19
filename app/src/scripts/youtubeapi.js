@@ -97,7 +97,7 @@ function getYoutubeContentRegions() {
     })
         .then((result) => {
             return result.data.items;
-        })
+        });
 }
 
 export { youtubeSearch, youtubeSearchWithDateFilter, getYoutubeContentRegions };
