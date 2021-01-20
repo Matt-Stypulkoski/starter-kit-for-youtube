@@ -1,5 +1,6 @@
 import { React, Component } from 'react';
 import { getYoutubeContentRegions } from '../scripts/youtubeapi.js';
+const mockContentRegions = require('../test/MockContentRegions.json');
 
 
 
@@ -17,15 +18,27 @@ class RegionSelection extends Component {
 
     getContentRegions() {
         let regionList = [];
-        getYoutubeContentRegions()
+        return getYoutubeContentRegions()
             .then(result => {
                 for (let region of result) {
                     regionList.push(region.snippet.name);
                 }
+                
                 this.setState({
                     regionList: regionList
                 });
             });
+    }
+
+    getMockContentRegions() {
+        let regionList = [];
+        for (let region of mockContentRegions) {
+            regionList.push(region.name);
+        }
+
+        this.setState({
+            regionList: regionList
+        });
     }
 
     toggleMenu() {
@@ -35,10 +48,14 @@ class RegionSelection extends Component {
         });
     }
 
+    componentDidMount() {
+        this.getMockContentRegions();
+    }
+
+
     render() {
         let menu;
         if (this.state.menuOpen) {
-            this.getContentRegions();
             menu = 
                 <div className="region-select-menu">
                     <button onClick={this.toggleMenu}>Close</button>
