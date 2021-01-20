@@ -56,30 +56,30 @@ class RegionSelection extends Component {
     render() {
         let menu;
         if (this.state.menuOpen) {
-            menu = 
-                <div className="region-select-menu">
+            menu =
+                <div>
                     <button onClick={this.toggleMenu}>Close</button>
                     <h4>Choose Your Region:</h4>
                     <ul className="region-list">
                         {this.state.regionList.map(function (region) {
                             return <li className="region-name">
-                                <button>{region}</button>
+                                <button className="region-btn">{region}</button>
                             </li>
                         })}
                     </ul>
                 </div>
         } else {
-            menu = 
-                <div className="region-select-menu">
+            menu =
+                <div>
                     <h4>Current Region: {this.state.currentRegion}</h4>
                     <button onClick={this.toggleMenu}>Open</button>
                 </div>
         }
 
         return (
-            <span>
+            <div className='region-select-container'>
                 {menu}
-            </span>
+            </div>
         );
     }
 }

@@ -1,6 +1,11 @@
+:root {
+    --background-color: #282c34;
+    --red: red;
+}
+
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: var(--background-color);
   min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
@@ -20,7 +25,7 @@
 }
 
 .date-container {
-    width: 70%;
+    width: 30%;
     text-align: left;
 }
 
@@ -83,6 +88,34 @@
     border: 5px solid white;
 }
 
+.region-select-container h4 {
+    margin: 0;
+}
+
+.region-select-menu {
+    position: relative;
+    height: 100%;
+}
+
 .region-list {
     list-style-type: none;
+    overflow: auto;
+    height: 100%;
+    position: absolute;
+    background-color: inherit;
+    margin: 0;
+}
+
+.region-btn {
+    font-family: inherit;
+    border: 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    background-color: inherit;
+    color: white;
+}
+
+.region-name {
+    background-color: var(--background-color);
 }
