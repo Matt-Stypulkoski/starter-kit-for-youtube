@@ -36,7 +36,6 @@ class RegionSelection extends Component {
     }
 
     render() {
-        console.log(this.state);
         let menu;
         if (this.state.menuOpen) {
             this.getContentRegions();

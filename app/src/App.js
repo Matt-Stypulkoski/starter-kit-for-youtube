@@ -40,17 +40,16 @@ class App extends Component {
         }
     }
 
-    getSearchResults(averageViews, totalViews, videoResults) {
+    getSearchResults(totalViews, averageViews, videoResults) {
         this.setState({
-            averageViews: averageViews,
             totalViews: totalViews,
+            averageViews: averageViews,
             videoResults: videoResults,
             hasSearched: true
         });
     }
 
-    render() {
-        console.log(this.state);
+    render() { 
         let resultsContainer;
         if (!this.state.hasSearched) {
             resultsContainer = <p className="placeholder-text">Search for a keyword to display results</p>

@@ -1,0 +1,47 @@
+[
+    {
+        "snippet": {
+            "title": "Test title 1",
+            "thumbnails": {
+                "high": {"url": "https://i.ytimg.com/vi/ejys3sT2LHw/hqdefault.jpg"}
+            } 
+        },
+        "statistics": {"viewCount": 100000}
+    },
+    {
+        "snippet": {
+            "title": "Test title 2",
+            "thumbnails": {
+                "high": {"url": "https://i.ytimg.com/vi/-evZvXLHdzA/hqdefault.jpg"}
+            } 
+        },
+        "statistics": {"viewCount": 150000}
+    },
+    {
+        "snippet": {
+            "title": "Test title 3",
+            "thumbnails": {
+                "high": {"url": "https://i.ytimg.com/vi/l9qMaHg6Dw0/hqdefault.jpg"}
+            } 
+        },
+        "statistics": {"viewCount": 200000}
+    },
+    {
+        "snippet": {
+            "title": "Test title 4",
+            "thumbnails": {
+                "high": {"url": "https://i.ytimg.com/vi/Sr_teBk_lIc/hqdefault.jpg"}
+            } 
+        },
+        "statistics": {"viewCount": 5050}
+    },
+    {
+        "snippet": {
+            "title": "Test title 5",
+            "thumbnails": {
+                "high": {"url": "https://i.ytimg.com/vi/faMFeVBtq9I/hqdefault.jpg"}
+            } 
+        },
+        "statistics": {"viewCount": 1000000}
+    }
+]
