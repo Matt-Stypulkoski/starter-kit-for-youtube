@@ -24,7 +24,7 @@ function DateInput(props){
     return (
         <span className="date-container">
             <label htmlFor="use-date">Filter by Date Range:</label>
-            <input type="checkbox" id="use-date" onChange={() => props.onChange()} />
+            <input type="checkbox" id="use-date" onChange={props.onChange} />
             {dateField}
         </span>
     )

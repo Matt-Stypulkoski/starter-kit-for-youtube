@@ -41,7 +41,7 @@ class RegionSelection extends Component {
             this.getContentRegions();
             menu = 
                 <div className="region-select-menu">
-                    <button onClick={() => this.toggleMenu}>Close</button>
+                    <button onClick={this.toggleMenu}>Close</button>
                     <h4>Choose Your Region:</h4>
                     <ul className="region-list">
                         {this.state.regionList.map(function (region) {
