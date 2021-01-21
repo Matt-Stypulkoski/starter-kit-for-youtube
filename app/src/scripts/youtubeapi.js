@@ -28,7 +28,7 @@ function youtubeSearch(keyword) {
             }
             return axios.get(`https://youtube.googleapis.com/youtube/v3/videos`, {
                 params: {
-                    "part": "snippet,statistics",
+                    "part": "snippet,statistics,contentDetails",
                     "id": vidIdList.join(),
                     "key": process.env.REACT_APP_YOUTUBE_API_KEY,
                 }
