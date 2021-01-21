@@ -6,6 +6,7 @@ function VideoResultContainer(props) {
         <div className="results-container" id="results-container">
             <ul className="results-list">
                 {props.videoList.map(function (vidElement) {
+                    console.log(`Time published: ${vidElement[4]}`);
                     return <VideoResult title={vidElement[0]} views={vidElement[1]} thumbnailURL={vidElement[2]} altText={vidElement[3]} />
                 })}
             </ul>

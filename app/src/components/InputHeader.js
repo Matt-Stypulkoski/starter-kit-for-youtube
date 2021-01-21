@@ -13,7 +13,7 @@ class InputHeader extends Component {
         this.toggleDateField = this.toggleDateField.bind(this);
         this.state = {
             useDateRange: false,
-            testEnv: true, // If true, use mock data and don't run api
+            testEnv: false, // If true, use mock data and don't run api
             mockData: mockData
         };
     }
@@ -37,7 +37,7 @@ class InputHeader extends Component {
         return youtubeSearch(keyword)
             .then(results => {
                 let viewResults = sortResults(results);
-                this.props.onSearch(viewResults[0], viewResults[1], viewResults[2])
+                this.props.onSearch(viewResults[0], viewResults[1], viewResults[2], viewResults[3])
             })
             .catch(err => alert(err));
     }

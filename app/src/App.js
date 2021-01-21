@@ -14,6 +14,7 @@ class App extends Component {
             totalViews: 0,
             keyword: '',
             videoResults: [],
+            allTimesPublished: {},
             hasSearched: false,
             useDateRange: false
         }
@@ -40,16 +41,18 @@ class App extends Component {
         }
     }
 
-    getSearchResults(totalViews, averageViews, videoResults) {
+    getSearchResults(totalViews, averageViews, videoResults, allTimesPublished) {
         this.setState({
             totalViews: totalViews,
             averageViews: averageViews,
             videoResults: videoResults,
+            allTimesPublished: allTimesPublished,
             hasSearched: true
         });
     }
 
-    render() { 
+    render() {
+        console.log(this.state);
         let resultsContainer;
         if (!this.state.hasSearched) {
             resultsContainer = <p className="placeholder-text">Search for a keyword to display results</p>
