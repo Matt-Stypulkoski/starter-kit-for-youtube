@@ -119,3 +119,25 @@
 .region-name {
     background-color: var(--background-color);
 }
+
+/* TIME DATA GRAPH STYLING */
+.time-data-graph-component-container {
+    width: 80%;
+}
+
+.time-data-graph-container {
+    width: 100%;
+    height: 75%;
+}
+
+.data-container {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+}
+
+.data-bar {
+    background-color: blue;
+    width: 2%;
+}

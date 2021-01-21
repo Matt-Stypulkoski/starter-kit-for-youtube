@@ -17,7 +17,6 @@ function sortResults(results) {
 
         const datetimePublished = vid.snippet.publishedAt;
         const timePublished = datetimePublished.match(/T(.*?):/);
-        console.log(timePublished[1]);
         allTimesPublished[timePublished[1]] = allTimesPublished[timePublished[1]] + 1;
 
 

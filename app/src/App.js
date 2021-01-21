@@ -3,6 +3,7 @@ import { React, Component } from 'react';
 import VideoResultContainer from './components/VideoResultContainer.js';
 import StatBoxContainer from './components/StatBoxContainer.js';
 import InputHeader from './components/InputHeader.js';
+import TimeDataGraph from './components/TimeDataGraph.js';
 
 class App extends Component {
     constructor(props) {
@@ -66,6 +67,7 @@ class App extends Component {
                 <StatBoxContainer statBoxList={[[this.simplifyLargeNumber(this.state.averageViews), "Average Views"],
                                                 [this.simplifyLargeNumber(this.state.totalViews), "Total Views"],
                                                 [this.simplifyLargeNumber(this.state.popularity), "Overall Interest"]]} />
+                <TimeDataGraph videoData={this.state.allTimesPublished} />
                 {resultsContainer}
             </div>
         );
