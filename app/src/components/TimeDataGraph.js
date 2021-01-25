@@ -10,6 +10,7 @@ class TimeDataGraph extends Component {
     }
 
     getBarData() {
+        console.log(this.props.videoData);
         let publishTimeFreq = [];
         for (let key in [...Array(24).keys()]) {
             key = String(key).padStart(2, '0');
