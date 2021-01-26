@@ -63,11 +63,13 @@ class App extends Component {
 
         return (
             <div className="App">
-                <InputHeader onSearch={this.getSearchResults}/>
-                <StatBoxContainer statBoxList={[[this.simplifyLargeNumber(this.state.averageViews), "Average Views"],
-                                                [this.simplifyLargeNumber(this.state.totalViews), "Total Views"],
-                                                [this.simplifyLargeNumber(this.state.popularity), "Overall Interest"]]} />
-                <TimeDataGraph videoData={this.state.allTimesPublished} />
+                <InputHeader onSearch={this.getSearchResults} />
+                <div className="all-stats-container">
+                    <StatBoxContainer statBoxList={[[this.simplifyLargeNumber(this.state.averageViews), "Average Views"],
+                                                    [this.simplifyLargeNumber(this.state.totalViews), "Total Views"],
+                                                    [this.simplifyLargeNumber(this.state.popularity), "Overall Interest"]]} />
+                    <TimeDataGraph videoData={this.state.allTimesPublished} width={500} height={500}/>
+                </div>
                 {resultsContainer}
             </div>
         );
