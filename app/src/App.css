@@ -122,7 +122,19 @@
 
 /* TIME DATA GRAPH STYLING */
 .upload-times {
+    
+}
 
+.svg-graph {
+    width: 100%;
+}
+
+.data-bar {
+    fill: blue;
+}
+
+.data-bar:hover {
+    fill: navy;
 }
 /*.time-data-graph-component-container {
     width: 80%;

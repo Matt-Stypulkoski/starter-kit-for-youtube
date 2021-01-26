@@ -10,7 +10,7 @@ function TimeDataBar(props) {
     */
 
     return (
-        <rect {...props}/>
+        <rect className="data-bar" {...props}/>
     );
 }
 
