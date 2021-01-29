@@ -4,6 +4,8 @@ import VideoResultContainer from './components/VideoResultContainer.js';
 import StatBoxContainer from './components/StatBoxContainer.js';
 import InputHeader from './components/InputHeader.js';
 import TimeDataGraph from './components/TimeDataGraph.js';
+import BarChart from './components/BarChart.js';
+
 
 class App extends Component {
     constructor(props) {
@@ -55,21 +57,35 @@ class App extends Component {
     render() {
         console.log(this.state);
         let resultsContainer;
+        let statContainer;
         if (!this.state.hasSearched) {
             resultsContainer = <p className="placeholder-text">Search for a keyword to display results</p>
+            statContainer = <h3>Search a term to return results</h3>
+           
         } else {
             resultsContainer = <VideoResultContainer videoList={this.state.videoResults} />
+            statContainer =
+                <div className="all-stats-container">
+                    <StatBoxContainer statBoxList={[
+                        {
+                            "value": this.simplifyLargeNumber(this.state.averageViews),
+                            "label": "Average Views"
+                        },
+                        {
+                            "value": this.simplifyLargeNumber(this.state.totalViews),
+                            "label": "Total Views"
+                        },
+                        {
+                            "value": this.state.popularity,
+                            "label": "Overall Interest"
+                        }]} />
+                    <BarChart uploadTimeData={this.state.allTimesPublished} />
+                </div>
         }
-
         return (
             <div className="App">
                 <InputHeader onSearch={this.getSearchResults} />
-                <div className="all-stats-container">
-                    <StatBoxContainer statBoxList={[[this.simplifyLargeNumber(this.state.averageViews), "Average Views"],
-                                                    [this.simplifyLargeNumber(this.state.totalViews), "Total Views"],
-                                                    [this.simplifyLargeNumber(this.state.popularity), "Overall Interest"]]} />
-                    <TimeDataGraph videoData={this.state.allTimesPublished} width={500} height={500}/>
-                </div>
+                {statContainer}
                 {resultsContainer}
             </div>
         );

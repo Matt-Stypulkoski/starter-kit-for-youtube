@@ -4,15 +4,15 @@
 }
 
 .App {
-  text-align: center;
-  background-color: var(--background-color);
-  min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  align-content: flex-start;
+    text-align: center;
+    background-color: var(--background-color);
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    align-content: flex-start;
 }
 
 .search-header {
@@ -72,7 +72,7 @@
 }
 
 .video-thumbnail {
-    width:50%;
+    width: 50%;
 }
 
 .stat-box-container {
@@ -120,45 +120,8 @@
     background-color: var(--background-color);
 }
 
-/* TIME DATA GRAPH STYLING */
-.upload-times {
-    
-}
-
-.svg-graph {
-    width: 100%;
-}
-
-.data-bar {
-    fill: blue;
-}
-
-.data-bar:hover {
-    fill: navy;
-}
-/*.time-data-graph-component-container {
-    width: 80%;
-    min-height: 50%;
-}
-
-.time-data-graph-container {
-    width: 100%;
-    height: 75%;
-}
-
-.data-container {
-    width: 100%;
-    height: 75%;
-    display: flex;
-    justify-content: center;
-}
-
-.data-bar {
-    background-color: blue;
-    width: 2%;
-}
-
 .all-stats-container {
     display: flex;
     flex-wrap: wrap;
-}*/
+    justify-content: center;
+}

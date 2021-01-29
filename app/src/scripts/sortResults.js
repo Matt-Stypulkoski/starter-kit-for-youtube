@@ -2,6 +2,7 @@ function sortResults(results) {
     var totalViews = 0;
     var unsortedVidList = []
     var allTimesPublished = {}
+
     for (let i = 0; i < 24; i++) {
         allTimesPublished[String(i).padStart(2, '0')] = 0;
     }
@@ -17,8 +18,8 @@ function sortResults(results) {
 
         const datetimePublished = vid.snippet.publishedAt;
         const timePublished = datetimePublished.match(/T(.*?):/);
-        allTimesPublished[timePublished[1]] = allTimesPublished[timePublished[1]] + 1;
 
+        allTimesPublished[timePublished[1]] = allTimesPublished[timePublished[1]] + 1;
 
         let videoData = [title, views, thumbnailURL, altText, datetimePublished]
         unsortedVidList.push(videoData);

@@ -13,7 +13,7 @@ class InputHeader extends Component {
         this.toggleDateField = this.toggleDateField.bind(this);
         this.state = {
             useDateRange: false,
-            testEnv: true, // If true, use mock data and don't run api
+            testEnv: false, // If true, use mock data and don't run api
             mockData: mockData
         };
     }
