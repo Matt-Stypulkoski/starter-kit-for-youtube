@@ -11,6 +11,7 @@ class InputHeader extends Component {
         this.runSearch = this.runSearch.bind(this);
         this.runSearchWithMockData = this.runSearchWithMockData.bind(this);
         this.toggleDateField = this.toggleDateField.bind(this);
+        this.fireOnEnter = this.fireOnEnter.bind(this);
         this.state = {
             useDateRange: false,
             testEnv: false, // If true, use mock data and don't run api
@@ -51,12 +52,26 @@ class InputHeader extends Component {
         this.setState({ useDateRange: !this.state.useDateRange });
     }
 
+    fireOnEnter() {
+        let input = document.getElementById("search-keyword");
+        input.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("search-btn").click();
+            }
+        })
+    }
+
+    componentDidMount() {
+        this.fireOnEnter();
+    }
+
     render() {
         let btn;
         if (this.state.testEnv) {
-            btn = <button onClick={() => this.runSearchWithMockData(this.state.mockData)}>Search</button>
+            btn = <button id="search-btn" onClick={() => this.runSearchWithMockData(this.state.mockData)}>Search</button>
         } else {
-           btn = <button onClick={this.runSearch}>Search</button>
+            btn = <button id="search-btn" onClick={this.runSearch}>Search</button>
         }
         return (
             <header className="search-header">
