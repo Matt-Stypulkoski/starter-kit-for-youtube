@@ -3,7 +3,6 @@ import { React, Component } from 'react';
 import VideoResultContainer from './components/VideoResultContainer.js';
 import StatBoxContainer from './components/StatBoxContainer.js';
 import InputHeader from './components/InputHeader.js';
-import TimeDataGraph from './components/TimeDataGraph.js';
 import BarChart from './components/BarChart.js';
 
 
@@ -55,7 +54,6 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state);
         let resultsContainer;
         let statContainer;
         if (!this.state.hasSearched) {
@@ -78,8 +76,8 @@ class App extends Component {
                         {
                             "value": this.state.popularity,
                             "label": "Overall Interest"
-                        }]} />
-                    <BarChart uploadTimeData={this.state.allTimesPublished} />
+                    }]} />
+                    <BarChart uploadTimeData={this.state.allTimesPublished} datasetKeyProvider={this.state.keyword} />
                 </div>
         }
         return (
