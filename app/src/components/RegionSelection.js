@@ -12,8 +12,8 @@ class RegionSelection extends Component {
         this.setRegion = this.setRegion.bind(this);
         this.state = {
             menuOpen: false,
-            currentRegion: "USA", // Need to replace with func that pulls location from browser
-            regionList: []
+            currentRegion: this.props.currentRegion,
+            regionList: mockContentRegions
         }
     }
 
@@ -31,16 +31,21 @@ class RegionSelection extends Component {
             });
     }
 
-    getMockContentRegions() {
-        let regionList = [];
-        for (let region of mockContentRegions) {
-            regionList.push(region.name);
-        }
+    //getMockContentRegions() {
+    //    let regionList = [];
+    //    for (let region of mockContentRegions) {
+    //        regionList.push(region.name);
+    //    }
 
-        this.setState({
-            regionList: regionList
-        });
+    //    this.setState({
+    //        regionList: regionList
+    //    });
+    //}
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        return (nextProps.currentRegion !== prevState.currentRegion) ? { currentRegion: nextProps.currentRegion } : null;
     }
+
 
     toggleMenu() {
         this.setState({
@@ -49,11 +54,11 @@ class RegionSelection extends Component {
     }
 
     componentDidMount() {
-        this.getMockContentRegions();
+        //this.getMockContentRegions();
     }
 
     setRegion(region) {
-        this.setState({ currentRegion: region })
+        this.setState({ currentRegion: region.name })
         this.props.onRegionSelect(region)
     }
 
@@ -69,7 +74,7 @@ class RegionSelection extends Component {
                     <ul className="region-list">
                         {this.state.regionList.map((region) => {
                             return <li className="region-name">
-                                <button className="region-btn" onClick={() => this.setRegion(region)}> {region}</button>
+                                <button className="region-btn" onClick={() => this.setRegion(region)}> {region.name}</button>
                             </li>
                         })}
                     </ul>

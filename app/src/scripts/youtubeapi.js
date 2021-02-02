@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-function youtubeSearch(keyword) {
+function youtubeSearch(keyword, regionCode) {
     // For now if no keyword is given, send an alert to browser. Need to change in future.
     if (keyword === "") {
         console.log("You must input a keyword to search for.");
@@ -15,6 +15,7 @@ function youtubeSearch(keyword) {
             'key': process.env.REACT_APP_YOUTUBE_API_KEY,
             'q': keyword,
             'type': 'video',
+            'regionCode': regionCode
         }
     })
         .then(res => {
@@ -41,7 +42,7 @@ function youtubeSearch(keyword) {
         })
 }
 
-function youtubeSearchWithDateFilter(keyword, publishedAfter, publishedBefore) {
+function youtubeSearchWithDateFilter(keyword, regionCode, publishedAfter, publishedBefore) {
     // For now if no keyword is given, send an alert to browser. Need to change in future.
     if (keyword === "") {
         console.log("You must input a keyword to search for.");
@@ -61,7 +62,8 @@ function youtubeSearchWithDateFilter(keyword, publishedAfter, publishedBefore) {
             'q': keyword,
             'type': 'video',
             'publishedAfter': publishedAfter,
-            'publishedBefore': publishedBefore
+            'publishedBefore': publishedBefore,
+            'regionCode': regionCode
         }
     })
         .then(res => {
