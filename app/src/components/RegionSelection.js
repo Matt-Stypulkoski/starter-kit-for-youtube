@@ -9,6 +9,7 @@ class RegionSelection extends Component {
         super(props);
         this.getContentRegions = this.getContentRegions.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
+        this.setRegion = this.setRegion.bind(this);
         this.state = {
             menuOpen: false,
             currentRegion: "USA", // Need to replace with func that pulls location from browser
@@ -42,7 +43,6 @@ class RegionSelection extends Component {
     }
 
     toggleMenu() {
-        console.log("CLICKED");
         this.setState({
             menuOpen: !this.state.menuOpen
         });
@@ -52,18 +52,23 @@ class RegionSelection extends Component {
         this.getMockContentRegions();
     }
 
+    setRegion(region) {
+        this.setState({currentRegion: region})
+    }
+
 
     render() {
         let menu;
+        console.log(this.state);
         if (this.state.menuOpen) {
             menu =
                 <div>
                     <button onClick={this.toggleMenu}>Close</button>
                     <h4>Choose Your Region:</h4>
                     <ul className="region-list">
-                        {this.state.regionList.map(function (region) {
+                        {this.state.regionList.map((region) => {
                             return <li className="region-name">
-                                <button className="region-btn">{region}</button>
+                                <button className="region-btn" onClick={() => this.setRegion(region)}> {region}</button>
                             </li>
                         })}
                     </ul>
