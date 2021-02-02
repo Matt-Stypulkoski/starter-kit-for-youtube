@@ -12,10 +12,12 @@ class InputHeader extends Component {
         this.runSearchWithMockData = this.runSearchWithMockData.bind(this);
         this.toggleDateField = this.toggleDateField.bind(this);
         this.fireOnEnter = this.fireOnEnter.bind(this);
+        this.setNewRegion = this.setNewRegion.bind(this);
         this.state = {
             useDateRange: false,
             testEnv: false, // If true, use mock data and don't run api
-            mockData: mockData
+            mockData: mockData,
+            currentRegion: ''
         };
     }
 
@@ -62,6 +64,11 @@ class InputHeader extends Component {
         })
     }
 
+    setNewRegion(region) {
+        this.setState({ currentRegion: region })
+        console.log(region);
+    }
+
     componentDidMount() {
         this.fireOnEnter();
     }
@@ -80,7 +87,7 @@ class InputHeader extends Component {
                     {btn}
                 </span>
                 <DateInput onChange={this.toggleDateField} useDateRange={this.state.useDateRange} />
-                <RegionSelection />
+                <RegionSelection onRegionSelect={this.setNewRegion}/>
             </header>
         )
     }

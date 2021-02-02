@@ -53,7 +53,8 @@ class RegionSelection extends Component {
     }
 
     setRegion(region) {
-        this.setState({currentRegion: region})
+        this.setState({ currentRegion: region })
+        this.props.onRegionSelect(region)
     }
 
 
