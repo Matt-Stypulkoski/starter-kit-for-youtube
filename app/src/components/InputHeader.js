@@ -19,7 +19,8 @@ class InputHeader extends Component {
             useDateRange: false,
             testEnv: false, // If true, use mock data and don't run api
             mockData: mockData,
-            currentRegion: null
+            currentRegion: null,
+            regionCode: null
         };
     }
 
@@ -27,11 +28,12 @@ class InputHeader extends Component {
         const keyword = document.getElementById("search-keyword").value;
         console.log(keyword);
         this.setState({ keyword: keyword });
+        let regionCode = this.state.regionCode
         if (this.state.useDateRange) {
             const publishedAfter = document.getElementById("published-after").value;
             const publishedBefore = document.getElementById("published-before").value;
 
-            return youtubeSearchWithDateFilter(keyword, this.state.currentRegion, publishedAfter, publishedBefore)
+            return youtubeSearchWithDateFilter(keyword, regionCode, publishedAfter, publishedBefore)
                 .then(results => {
                     console.log("SEARCHED WITH DATES");
                     let viewResults = sortResults(results);
@@ -39,7 +41,7 @@ class InputHeader extends Component {
                 })
                 .catch(err => alert(err));;
         }
-        return youtubeSearch(keyword, this.state.currentRegion)
+        return youtubeSearch(keyword, regionCode)
             .then(results => {
                 let viewResults = sortResults(results);
                 this.props.onSearch(viewResults[0], viewResults[1], viewResults[2], viewResults[3])
@@ -69,12 +71,15 @@ class InputHeader extends Component {
     getCountry() {
         return getUserCountry()
             .then(res => {
-                this.setState({ currentRegion: res })
+                this.setState({
+                    currentRegion: res.country,
+                    regionCode: res.code
+                })
             })
     }
 
     setNewRegion(region) {
-        this.setState({ currentRegion: region.name })
+        this.setState({ currentRegion: region.name, regionCode: region.id })
         console.log(region);
     }
 
