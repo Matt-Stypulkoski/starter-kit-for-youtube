@@ -25,6 +25,7 @@ class InputHeader extends Component {
     }
 
     runSearch() {
+        this.props.isSearching();
         const keyword = document.getElementById("search-keyword").value;
         console.log(keyword);
         this.setState({ keyword: keyword });
@@ -50,8 +51,14 @@ class InputHeader extends Component {
     }
 
     runSearchWithMockData(data) {
-        let viewResults = sortResults(data);
-        this.props.onSearch(viewResults[0], viewResults[1], viewResults[2], viewResults[3]);
+        this.props.isSearching();
+        console.log("WAITING");
+        // timeout to test loading animation with mock data
+        setTimeout(() => {
+            console.log("GOGOGOGO")
+            let viewResults = sortResults(data);
+            this.props.onSearch(viewResults[0], viewResults[1], viewResults[2], viewResults[3]);
+        }, 2000);
     }
 
     toggleDateField() {

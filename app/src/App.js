@@ -11,6 +11,7 @@ class App extends Component {
         super(props);
         this.simplifyLargeNumber = this.simplifyLargeNumber.bind(this);
         this.getSearchResults = this.getSearchResults.bind(this);
+        this.setLoader = this.setLoader.bind(this);
         this.state = {
             averageViews: 0,
             totalViews: 0,
@@ -18,7 +19,8 @@ class App extends Component {
             videoResults: [],
             allTimesPublished: {},
             hasSearched: false,
-            useDateRange: false
+            useDateRange: false,
+            isSearching: false
         }
     }
 
@@ -49,17 +51,27 @@ class App extends Component {
             averageViews: averageViews,
             videoResults: videoResults,
             allTimesPublished: allTimesPublished,
-            hasSearched: true
+            hasSearched: true,
+            isSearching: false
         });
+    }
+
+    setLoader() {
+        this.setState({ isSearching: true })
     }
 
     render() {
         let resultsContainer;
         let statContainer;
-        if (!this.state.hasSearched) {
-            resultsContainer = <p className="placeholder-text">Search for a keyword to display results</p>
-            statContainer = <h3>Search a term to return results</h3>
-           
+        let content;
+        if (this.state.isSearching) {
+            content = <div className="loading" />
+        }
+        else if (!this.state.hasSearched) {
+            content =
+                <div className="content">
+                    <p>Enter a search term to display results</p>
+                </div>
         } else {
             resultsContainer = <VideoResultContainer videoList={this.state.videoResults} />
             statContainer =
@@ -79,12 +91,16 @@ class App extends Component {
                     }]} />
                     <BarChart uploadTimeData={this.state.allTimesPublished} datasetKeyProvider={this.state.keyword} />
                 </div>
+            content = 
+                <div className="content">
+                    {statContainer}
+                    {resultsContainer}
+                </div>
         }
         return (
             <div className="App">
-                <InputHeader onSearch={this.getSearchResults} />
-                {statContainer}
-                {resultsContainer}
+                <InputHeader onSearch={this.getSearchResults} isSearching={this.setLoader} />
+                {content}
             </div>
         );
     }
