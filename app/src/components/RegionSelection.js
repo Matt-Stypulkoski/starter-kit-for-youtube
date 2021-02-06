@@ -24,7 +24,7 @@ class RegionSelection extends Component {
                 for (let region of result) {
                     regionList.push(region.snippet.name);
                 }
-                
+
                 this.setState({
                     regionList: regionList
                 });
@@ -58,38 +58,35 @@ class RegionSelection extends Component {
     }
 
     setRegion(region) {
-        this.setState({ currentRegion: region.name })
+        this.setState({
+            currentRegion: region.name,
+            menuOpen: false
+        })
         this.props.onRegionSelect(region)
     }
 
 
     render() {
-        let menu;
-        console.log(this.state);
+        let btnText;
         if (this.state.menuOpen) {
-            menu =
-                <div>
-                    <button onClick={this.toggleMenu}>Close</button>
-                    <h4>Choose Your Region:</h4>
-                    <ul className="region-list">
-                        {this.state.regionList.map((region) => {
-                            return <li className="region-name">
-                                <button className="region-btn" onClick={() => this.setRegion(region)}> {region.name}</button>
-                            </li>
-                        })}
-                    </ul>
-                </div>
+            btnText = "Choose Your Region:"
         } else {
-            menu =
-                <div>
-                    <h4>Current Region: {this.state.currentRegion}</h4>
-                    <button onClick={this.toggleMenu}>Open</button>
-                </div>
+            btnText = `Current Region: ${this.state.currentRegion}`
         }
-
         return (
             <div className='region-select-container'>
-                {menu}
+                <button type="button" className="region-menu-btn" onClick={this.toggleMenu}>{btnText}</button>
+                {this.state.menuOpen && (
+                    <div className="region-list-dropdown">
+                        <ul className="region-ul">
+                            {this.state.regionList.map((region) => {
+                                return <li className="region-name">
+                                    <button className="region-btn" onClick={() => this.setRegion(region)}> {region.name}</button>
+                                </li>
+                            })}
+                        </ul>
+                    </div>
+                )}
             </div>
         );
     }
