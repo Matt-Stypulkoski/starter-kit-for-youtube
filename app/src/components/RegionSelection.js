@@ -1,46 +1,19 @@
 import { React, Component } from 'react';
-import { getYoutubeContentRegions } from '../scripts/youtubeapi.js';
-const mockContentRegions = require('../test/MockContentRegions.json');
+const contentRegions = require('../data/contentRegions.json');
 
 
 
 class RegionSelection extends Component {
     constructor(props) {
         super(props);
-        this.getContentRegions = this.getContentRegions.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
         this.setRegion = this.setRegion.bind(this);
         this.state = {
             menuOpen: false,
             currentRegion: this.props.currentRegion,
-            regionList: mockContentRegions
+            regionList: contentRegions
         }
     }
-
-    getContentRegions() {
-        let regionList = [];
-        return getYoutubeContentRegions()
-            .then(result => {
-                for (let region of result) {
-                    regionList.push(region.snippet.name);
-                }
-
-                this.setState({
-                    regionList: regionList
-                });
-            });
-    }
-
-    //getMockContentRegions() {
-    //    let regionList = [];
-    //    for (let region of mockContentRegions) {
-    //        regionList.push(region.name);
-    //    }
-
-    //    this.setState({
-    //        regionList: regionList
-    //    });
-    //}
 
     static getDerivedStateFromProps(nextProps, prevState) {
         return (nextProps.currentRegion !== prevState.currentRegion) ? { currentRegion: nextProps.currentRegion } : null;
