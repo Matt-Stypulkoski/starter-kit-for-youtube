@@ -1,6 +1,6 @@
 import { React, Component } from 'react';
 import DateInput from './DateInput.js';
-import { youtubeSearch, youtubeSearchWithDateFilter } from '../scripts/youtubeapi.js';
+import { youtubeSearch } from '../scripts/youtubeapi.js';
 import sortResults from '../scripts/sortResults.js';
 import RegionSelection from './RegionSelection.js';
 import getUserCountry from '../scripts/getUserCountry.js';
@@ -16,7 +16,7 @@ class InputHeader extends Component {
         this.getCountry = this.getCountry.bind(this);
         this.setNewRegion = this.setNewRegion.bind(this);
         this.state = {
-            useDateRange: false,
+            useDateRange: true,
             testEnv: false, // If true, use mock data and don't run api
             mockData: mockData,
             currentRegion: null,
@@ -30,19 +30,19 @@ class InputHeader extends Component {
         console.log(keyword);
         this.setState({ keyword: keyword });
         let regionCode = this.state.regionCode
-        if (this.state.useDateRange) {
-            const publishedAfter = document.getElementById("published-after").value;
-            const publishedBefore = document.getElementById("published-before").value;
+        const publishedAfter = document.getElementById("published-after").value;
+        const publishedBefore = document.getElementById("published-before").value;
+        console.log(publishedAfter);
+        console.log(publishedAfter === '')
 
-            return youtubeSearchWithDateFilter(keyword, regionCode, publishedAfter, publishedBefore)
-                .then(results => {
-                    console.log("SEARCHED WITH DATES");
-                    let viewResults = sortResults(results);
-                    this.props.onSearch(viewResults[0], viewResults[1], viewResults[2], viewResults[3]);
-                })
-                .catch(err => alert(err));;
+        let searchParams = {
+            'q': keyword,
+            'regionCode': regionCode,
+            'publishedBefore': publishedBefore,
+            'publishedAfter': publishedAfter
         }
-        return youtubeSearch(keyword, regionCode)
+
+        return youtubeSearch(searchParams)
             .then(results => {
                 let viewResults = sortResults(results);
                 this.props.onSearch(viewResults[0], viewResults[1], viewResults[2], viewResults[3])
@@ -104,14 +104,12 @@ class InputHeader extends Component {
             btn = <button id="search-btn" onClick={this.runSearch}>Search</button>
         }
         return (
-            <header className="search-header">
-                <span className="search-container">
-                    <input type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
-                    {btn}
-                </span>
-                <DateInput onChange={this.toggleDateField} useDateRange={this.state.useDateRange} />
+            <div className="search-container">
+                <input className="search-field" type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
+                <DateInput onChange={this.toggleDateField}/>
                 <RegionSelection onRegionSelect={this.setNewRegion} currentRegion={this.state.currentRegion} />
-            </header>
+                {btn}
+            </div>
         )
     }
 }
