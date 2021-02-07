@@ -26,10 +26,6 @@ class RegionSelection extends Component {
         });
     }
 
-    componentDidMount() {
-        //this.getMockContentRegions();
-    }
-
     setRegion(region) {
         this.setState({
             currentRegion: region.name,
