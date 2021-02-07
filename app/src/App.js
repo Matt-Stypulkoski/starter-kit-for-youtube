@@ -84,11 +84,7 @@ class App extends Component {
                         {
                             "value": this.simplifyLargeNumber(this.state.totalViews),
                             "label": "Total Views"
-                        },
-                        {
-                            "value": this.state.popularity,
-                            "label": "Overall Interest"
-                    }]} />
+                        }]} />
                     <BarChart uploadTimeData={this.state.allTimesPublished} datasetKeyProvider={this.state.keyword} />
                 </div>
             content = 
