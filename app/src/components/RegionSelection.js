@@ -1,4 +1,6 @@
 import { React, Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 const contentRegions = require('../data/contentRegions.json');
 
 
@@ -37,14 +39,18 @@ class RegionSelection extends Component {
 
     render() {
         let btnText;
+        let menuArrow;
         if (this.state.menuOpen) {
             btnText = "Choose Your Region:"
+            menuArrow = <FontAwesomeIcon icon={faArrowLeft} />
         } else {
             btnText = `Current Region: ${this.state.currentRegion}`
+            menuArrow = <FontAwesomeIcon icon={faArrowRight} />
         }
         return (
             <div className='region-select-container'>
                 <button type="button" className="region-menu-btn" onClick={this.toggleMenu}>{btnText}</button>
+                {menuArrow}
                 {this.state.menuOpen && (
                     <div className="region-list-dropdown">
                         <ul className="region-ul">
