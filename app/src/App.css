@@ -42,10 +42,21 @@
 .search-container {
     display: flex;
     flex-wrap: wrap;
+    border: 5px solid white;
+    position: relative;
+    left: 5%;
+    padding: 2%;
+    width: 50%;
+}
+
+#search-btn {
+    position: relative;
+    left: 100%;
+    transform: translate(-100%);
 }
 
 .search-field {
-    width: 50%;
+
 }
 
 .date-container {
@@ -57,6 +68,11 @@
 .region-select-container {
     position: relative;
     display: inline-block;
+    width: 100%;
+}
+
+.menu-arrow {
+    padding-left: 5px;
 }
 
 .region-list-dropdown {
@@ -75,7 +91,7 @@
     height: 100%;
 }
 
-.region-btn {
+.region-menu-btn {
     font-family: inherit;
     border: 0;
     padding: 0;
@@ -87,6 +103,16 @@
 
 .region-name {
     background-color: var(--background-color);
+}
+
+.region-btn {
+    font-family: inherit;
+    border: 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    background-color: inherit;
+    color: white;
 }
 
 /****************/
