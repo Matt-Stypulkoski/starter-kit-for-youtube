@@ -9,6 +9,7 @@
     min-height: 100vh;
     font-size: calc(10px + 2vmin);
     color: white;
+    overflow: auto;
 }
 
 .content {
@@ -47,6 +48,7 @@
     left: 5%;
     padding: 2%;
     width: 50%;
+    margin: 5% 0 5% 0;
 }
 
 #search-btn {
