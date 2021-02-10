@@ -3,7 +3,6 @@ import DateInput from './DateInput.js';
 import { youtubeSearch } from '../scripts/youtubeapi.js';
 import sortResults from '../scripts/sortResults.js';
 import RegionSelection from './RegionSelection.js';
-import getUserCountry from '../scripts/getUserCountry.js';
 const mockData = require('../test/MockVideoResults.json');
 
 class InputHeader extends Component {
@@ -11,16 +10,10 @@ class InputHeader extends Component {
         super(props)
         this.runSearch = this.runSearch.bind(this);
         this.runSearchWithMockData = this.runSearchWithMockData.bind(this);
-        this.toggleDateField = this.toggleDateField.bind(this);
-        this.fireOnEnter = this.fireOnEnter.bind(this);
-        this.getCountry = this.getCountry.bind(this);
-        this.setNewRegion = this.setNewRegion.bind(this);
+        this.fireOnEnter = this.fireOnEnter.bind(this);;
         this.state = {
-            useDateRange: true,
             testEnv: false, // If true, use mock data and don't run api
-            mockData: mockData,
-            currentRegion: null,
-            regionCode: null
+            mockData: mockData
         };
     }
 
@@ -29,7 +22,7 @@ class InputHeader extends Component {
         const keyword = document.getElementById("search-keyword").value;
         console.log(keyword);
         this.setState({ keyword: keyword });
-        let regionCode = this.state.regionCode
+        let regionCode = document.getElementById("region-select").value;
         const publishedAfter = document.getElementById("published-after").value;
         const publishedBefore = document.getElementById("published-before").value;
         console.log(publishedAfter);
@@ -52,17 +45,11 @@ class InputHeader extends Component {
 
     runSearchWithMockData(data) {
         this.props.isSearching();
-        console.log("WAITING");
         // timeout to test loading animation with mock data
         setTimeout(() => {
-            console.log("GOGOGOGO")
             let viewResults = sortResults(data);
             this.props.onSearch(viewResults[0], viewResults[1], viewResults[2], viewResults[3]);
         }, 2000);
-    }
-
-    toggleDateField() {
-        this.setState({ useDateRange: !this.state.useDateRange });
     }
 
     fireOnEnter() {
@@ -75,28 +62,11 @@ class InputHeader extends Component {
         })
     }
 
-    getCountry() {
-        return getUserCountry()
-            .then(res => {
-                this.setState({
-                    currentRegion: res.country,
-                    regionCode: res.code
-                })
-            })
-    }
-
-    setNewRegion(region) {
-        this.setState({ currentRegion: region.name, regionCode: region.id })
-        console.log(region);
-    }
-
     componentDidMount() {
         this.fireOnEnter();
-        this.getCountry();
     }
 
     render() {
-        console.log(this.state)
         let btn;
         if (this.state.testEnv) {
             btn = <button id="search-btn" onClick={() => this.runSearchWithMockData(this.state.mockData)}>Search</button>
@@ -107,7 +77,7 @@ class InputHeader extends Component {
             <div className="search-container">
                 <input className="search-field" type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
                 <DateInput onChange={this.toggleDateField}/>
-                <RegionSelection onRegionSelect={this.setNewRegion} currentRegion={this.state.currentRegion} />
+                <RegionSelection  />
                 {btn}
             </div>
         )

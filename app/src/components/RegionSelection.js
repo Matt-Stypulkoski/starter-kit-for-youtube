@@ -1,6 +1,5 @@
 import { React, Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleUp, faAngleDown} from '@fortawesome/free-solid-svg-icons'
+import getUserCountry from '../scripts/getUserCountry.js';
 const contentRegions = require('../data/contentRegions.json');
 
 
@@ -8,60 +7,39 @@ const contentRegions = require('../data/contentRegions.json');
 class RegionSelection extends Component {
     constructor(props) {
         super(props);
-        this.toggleMenu = this.toggleMenu.bind(this);
-        this.setRegion = this.setRegion.bind(this);
+        this.getUserCountryData = this.getUserCountryData.bind(this);
         this.state = {
-            menuOpen: false,
-            currentRegion: this.props.currentRegion,
-            regionList: contentRegions
+            currentRegion: null,
+            regionList: contentRegions,
+            regionCode: null
         }
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        return (nextProps.currentRegion !== prevState.currentRegion) ? { currentRegion: nextProps.currentRegion } : null;
+    getUserCountryData() {
+        return getUserCountry()
+            .then(res => {
+                this.setState({
+                    currentRegion: res.country,
+                    regionCode: res.code
+                })
+            })
     }
 
-
-    toggleMenu() {
-        this.setState({
-            menuOpen: !this.state.menuOpen
-        });
+    componentDidMount() {
+        this.getUserCountryData();
     }
-
-    setRegion(region) {
-        this.setState({
-            currentRegion: region.name,
-            menuOpen: false
-        })
-        this.props.onRegionSelect(region)
-    }
-
 
     render() {
-        let btnText;
-        let menuArrow;
-        if (this.state.menuOpen) {
-            btnText = "Choose Your Region:"
-            menuArrow = <FontAwesomeIcon className="menu-arrow" icon={faAngleUp} />
-        } else {
-            btnText = `Region: ${this.state.currentRegion}`
-            menuArrow = <FontAwesomeIcon className="menu-arrow" icon={faAngleDown} />
-        }
+        console.log(this.state)
         return (
             <div className='region-select-container'>
-                <button type="button" className="region-menu-btn" onClick={this.toggleMenu}>{btnText}{menuArrow}</button>
-                
-                {this.state.menuOpen && (
-                    <div className="region-list-dropdown">
-                        <ul className="region-ul">
-                            {this.state.regionList.map((region) => {
-                                return <li className="region-name">
-                                    <button className="region-btn" onClick={() => this.setRegion(region)}> {region.name}</button>
-                                </li>
-                            })}
-                        </ul>
-                    </div>
-                )}
+                <label htmlFor="region-select">Region:</label>
+                <select name="regions" id="region-select">
+                    {this.state.regionList.map((region) => {
+                        return (this.state.currentRegion ===  region.name) ? <option value={region.id} selected>{region.name}</option>
+                                                                           : <option value={region.id}>{region.name}</option> 
+                    })}
+                </select>
             </div>
         );
     }
