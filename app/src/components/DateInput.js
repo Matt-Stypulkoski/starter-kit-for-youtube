@@ -12,11 +12,13 @@ function DateInput(props) {
         <div className="date-container">
             <span>Date Range: </span>
             <DatePicker
+                id="published-after"
                 placeholderText="Select Start Date"
                 selected={startDate}
                 onChange={date => setStartDate(date)} />
             <span> to </span>
             <DatePicker
+                id="published-before"
                 placeholderText="Select End Date"
                 selected={endDate}
                 onChange={date => setEndDate(date)} />
