@@ -17,8 +17,8 @@ function youtubeSearch(searchParams) {
     }
     console.log(`Searching through youtube for ${keyword}`);
 
-    let publishedBefore = (searchParams.publishedBefore !== '') ? searchParams.publishedBefore + 'T00:00:00Z' : new Date().toISOString();
-    let publishedAfter = (searchParams.publishedAfter !== '') ? searchParams.publishedAfter + 'T00:00:00Z' : '1970-01-01T00:00:00Z';
+    let publishedBefore = (searchParams.publishedBefore !== '') ? new Date(searchParams.publishedBefore).toISOString() : new Date().toISOString();
+    let publishedAfter = (searchParams.publishedAfter !== '') ? new Date(searchParams.publishedAfter).toISOString() : '1970-01-01T00:00:00Z';
 
     console.log(publishedBefore)
     console.log(publishedAfter)
@@ -57,6 +57,9 @@ function youtubeSearch(searchParams) {
                     return result.data.items;
                 });
         })
+}
+
+function translateDateToRFC3339(date) {
 }
 
 export { youtubeSearch };
