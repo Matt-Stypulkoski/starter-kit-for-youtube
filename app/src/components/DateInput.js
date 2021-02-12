@@ -15,13 +15,27 @@ function DateInput(props) {
                 id="published-after"
                 placeholderText="Select Start Date"
                 selected={startDate}
-                onChange={date => setStartDate(date)} />
+                onChange={date => setStartDate(date)}
+                maxDate={(endDate) ? endDate : new Date()}
+                showYearDropdown
+                showMonthDropdown
+                dropdownMode="select"
+                todayButton="Today"
+            />
             <span> to </span>
             <DatePicker
                 id="published-before"
                 placeholderText="Select End Date"
                 selected={endDate}
-                onChange={date => setEndDate(date)} />
+                onChange={date => setEndDate(date)}
+                maxDate={new Date()}
+                minDate={startDate}
+                showYearDropdown
+                showMonthDropdown
+                dropdownMode="select"
+                todayButton="Today"
+            />
+                
             <div className="date-tooltip">
                 <FontAwesomeIcon icon={faInfoCircle} />
                 <span class="tooltip-text">
@@ -36,4 +50,8 @@ function DateInput(props) {
     )
 }
 
+
+function test(val) {
+    console.log(val);
+}
 export default DateInput;
