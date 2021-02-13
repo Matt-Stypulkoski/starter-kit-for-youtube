@@ -3,6 +3,10 @@
     --red: red;
 }
 
+body {
+    margin: 0;
+}
+
 .App {
     text-align: center;
     background-color: var(--background-color);
@@ -11,6 +15,20 @@
     color: white;
     overflow: auto;
     font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    display: flex;
+    background-color: #F8F5EB;
+    color: red;
+}
+
+.header h2 {
+    margin: auto;
+}
+
+.header FontAwesome {
+    position: absolute;
 }
 
 .content {

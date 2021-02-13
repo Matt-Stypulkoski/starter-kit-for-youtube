@@ -1,5 +1,6 @@
 import './App.css';
 import { React, Component } from 'react';
+import Header from './components/Header.js';
 import VideoResultContainer from './components/VideoResultContainer.js';
 import StatBoxContainer from './components/StatBoxContainer.js';
 import InputHeader from './components/InputHeader.js';
@@ -95,6 +96,7 @@ class App extends Component {
         }
         return (
             <div className="App">
+                <Header />
                 <InputHeader onSearch={this.getSearchResults} isSearching={this.setLoader} />
                 {content}
             </div>

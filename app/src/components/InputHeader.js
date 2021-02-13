@@ -75,8 +75,10 @@ class InputHeader extends Component {
         }
         return (
             <div className="search-container">
-                <label htmlFor="search-keyword">Search Term:</label>
-                <input className="search-field" type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
+                <div className="keyword-container">
+                    <label htmlFor="search-keyword">Search Term:</label>
+                    <input className="search-field" type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
+                </div>
                 <DateInput onChange={this.toggleDateField}/>
                 <RegionSelection  />
                 {btn}
