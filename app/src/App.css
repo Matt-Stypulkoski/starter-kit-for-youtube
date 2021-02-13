@@ -1,15 +1,10 @@
-:root {
-    --background-color: #282c34;
-    --red: red;
-}
-
 body {
     margin: 0;
 }
 
 .App {
     text-align: center;
-    background-color: var(--background-color);
+    background-color: #1E1E31;
     min-height: 100vh;
     font-size: calc(10px + 2vmin);
     color: white;
@@ -66,6 +61,8 @@ body {
     position: relative;
     padding: 2%;
     margin: 5%;
+    background-color: #F8F5EB;
+    color: #1E1E31;
 }
 
 #search-btn {
