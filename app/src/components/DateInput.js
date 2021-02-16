@@ -10,7 +10,7 @@ function DateInput(props) {
 
     return (
         <div className="date-container">
-            <span>Date Range: </span>
+            <span>date range: </span>
             <DatePicker
                 id="published-after"
                 placeholderText="Select Start Date"
