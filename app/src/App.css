@@ -80,25 +80,12 @@ body {
 }
 
 .search-parameter-input {
-/*    height: 3rem;*/
     text-align: left;
 }
 
 #search-btn {
-    position: relative;
-    left: 100%;
-    transform: translate(-100%);
-}
-
-.search-field {
-
-}
-
-.date-container {
-/*    width: 100%;
-    text-align: left;
-    display: flex;*/
-
+    width: 50%;
+    margin: auto;
 }
 
 .react-datepicker-wrapper,
