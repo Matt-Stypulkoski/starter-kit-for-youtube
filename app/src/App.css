@@ -96,6 +96,10 @@ body {
     padding: 0;
 }
 
+.react-datepicker__tab-loop {
+    display: inline-block;
+}
+
 .date-tooltip {
     display: inline-block;
     position: relative;
