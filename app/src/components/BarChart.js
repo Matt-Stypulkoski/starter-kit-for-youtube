@@ -20,7 +20,7 @@ class BarChart extends Component {
 
     render() {
         return (
-            <div>
+            <div className="bar-chart-container">
                 <Bar
                     data={this.state.graphData}
                     options={{
