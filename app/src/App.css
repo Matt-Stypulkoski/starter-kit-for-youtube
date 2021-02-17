@@ -69,6 +69,20 @@ body {
 
 .search-parameter-container {
     display: flex;
+    height: 3rem;
+    margin-bottom: 2rem;
+}
+
+.search-parameter-label {
+    width: 40%;
+    text-align: right;
+
+}
+
+.search-parameter-input {
+    width: 60%;
+/*    height: 3rem;*/
+    text-align: left;
 }
 
 #search-btn {
@@ -92,6 +106,8 @@ body {
 .react-datepicker__input-container,
 .react-datepicker__input-container input {
     padding: 0 5px 0 5px;
+    height: 3rem;
+    padding: 0;
 }
 
 .date-tooltip {

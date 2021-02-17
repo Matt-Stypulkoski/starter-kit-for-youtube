@@ -10,8 +10,8 @@ function DateInput(props) {
 
     return (
         <div className="search-parameter-container">
-            <div>date range:</div>
-            <div>
+            <div className="search-parameter-label">date range:</div>
+            <div className="search-parameter-input">
                 <DatePicker
                     id="published-after"
                     placeholderText="Select Start Date"

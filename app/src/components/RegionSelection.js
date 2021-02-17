@@ -33,8 +33,8 @@ class RegionSelection extends Component {
         console.log(this.state)
         return (
             <div className='search-parameter-container'>
-                <label htmlFor="region-select">region:</label>
-                <select name="regions" id="region-select">
+                <label className="search-parameter-label" htmlFor="region-select">region:</label>
+                <select className="search-parameter-input" name="regions" id="region-select">
                     {this.state.regionList.map((region) => {
                         return (this.state.currentRegion ===  region.name) ? <option value={region.id} selected>{region.name}</option>
                                                                            : <option value={region.id}>{region.name}</option> 
