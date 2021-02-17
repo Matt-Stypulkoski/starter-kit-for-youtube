@@ -32,7 +32,7 @@ class RegionSelection extends Component {
     render() {
         console.log(this.state)
         return (
-            <div className='region-select-container'>
+            <div className='search-parameter-container'>
                 <label htmlFor="region-select">region:</label>
                 <select name="regions" id="region-select">
                     {this.state.regionList.map((region) => {
