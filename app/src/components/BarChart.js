@@ -24,6 +24,8 @@ class BarChart extends Component {
                 <Bar
                     data={this.state.graphData}
                     options={{
+                        responsive: true,
+                        maintainAspectRatio: false,
                         title: {
                             display: true,
                             text: 'Upload Times',
@@ -73,8 +75,9 @@ function setGraphData(graphDataProps) {
         labels: xLabels,
         datasets: [
             {
-                backgroundColor: 'rgba(75,192,192,1)',
+                backgroundColor: 'rgba(196,0,0,1)',
                 borderColor: 'rgba(0,0,0,1)',
+                hoverBackgroundColor: 'rgba(138,0,0,1)',
                 borderWidth: 1,
                 data: data
             }
