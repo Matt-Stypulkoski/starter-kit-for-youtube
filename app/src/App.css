@@ -207,6 +207,7 @@ body {
     flex-direction: column;
     width: 50%;
     text-align: left;
+    font-size: 2vw;
 }
 
 .video-list-element {
@@ -227,6 +228,11 @@ body {
 }
 
 .video-thumbnail {
+    width: 100%;
+
+}
+
+.video-link {
     width: 50%;
 }
 
@@ -259,4 +265,5 @@ canvas {
     margin: auto;
     background-color: #f8f5eb;
 }
+
 
