@@ -29,30 +29,43 @@ class BarChart extends Component {
                         title: {
                             display: true,
                             text: 'Upload Times',
-                            fontSize: 20
+                            fontSize: 20,
+                            fontColor: 'rgb(30, 30, 49)'
                         },
                         legend: {
                             display: false,
-                            position: 'right'
+                            position: 'right',
                         },
                         scales: {
                             xAxes: [{
                                 gridLines: {
-                                    display: false
-                                },
-                                ticks: {
-                                    fontSize: 10,
-                                    autoSkip: true
-                                }
-                            }],
-                            yAxes: [{
-                                gridLines: {
-                                    display: false
+                                    display: true
                                 },
                                 ticks: {
                                     fontSize: 10,
                                     autoSkip: true,
-                                    stepSize: 2
+                                    fontColor: 'rgb(30, 30, 49)'
+                                },
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Hours',
+                                    fontColor: 'rgb(30, 30, 49)'
+                                }
+                            }],
+                            yAxes: [{
+                                gridLines: {
+                                    display: true
+                                },
+                                ticks: {
+                                    fontSize: 10,
+                                    autoSkip: true,
+                                    stepSize: 2,
+                                    fontColor: 'rgb(30, 30, 49)'
+                                },
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Videos Uploaded',
+                                    fontColor: 'rgb(30, 30, 49)'
                                 }
                             }]
                         }
