@@ -26,6 +26,32 @@ class BarChart extends Component {
                     options={{
                         responsive: true,
                         maintainAspectRatio: false,
+                        tooltips: {
+                            callbacks: {
+                                title: function (context) {
+                                    console.log(context)
+                                    var label = context[0].label || '';
+                                    console.log(label);
+
+                                    if (label) {
+                                        label = `During ${label}:00 there were`;
+                                    }
+                                    
+                                    return label;
+                                },
+                                label: function (context) {
+                                    console.log(context)
+                                    var label = context.value || '';
+                                    console.log(label);
+
+                                    if (label) {
+                                        let vid_grammar = (label === '1') ? 'video' : 'videos'
+                                        label = `${label} ${vid_grammar} uploaded`;
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
                         title: {
                             display: true,
                             text: 'Upload Times',
@@ -39,17 +65,18 @@ class BarChart extends Component {
                         scales: {
                             xAxes: [{
                                 gridLines: {
-                                    display: true
+                                    display: true,
+                                    offsetGridLines: true,
                                 },
                                 ticks: {
                                     fontSize: 10,
                                     autoSkip: true,
-                                    fontColor: 'rgb(30, 30, 49)'
+                                    fontColor: 'rgb(30, 30, 49)',
                                 },
                                 scaleLabel: {
                                     display: true,
                                     labelString: 'Hours',
-                                    fontColor: 'rgb(30, 30, 49)'
+                                    fontColor: 'rgb(30, 30, 49)',
                                 }
                             }],
                             yAxes: [{
