@@ -1,3 +1,5 @@
+@import 'loaders.css/loaders.min.css';
+
 body {
     margin: 0;
 }
@@ -32,6 +34,10 @@ body {
     justify-content: center;
 }
 
+.loader-active {
+    transform: scale(2);
+}
+
 .loading {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
@@ -40,10 +46,10 @@ body {
     height: 100px;
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
-    
+    transform: translateX(-50%) !important;
     /* Center loading animation */
     position: absolute;
-    top: 50%;
+    /*    top: 50%;*/
     left: 50%;
 }
 

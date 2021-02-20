@@ -5,6 +5,7 @@ import VideoResultContainer from './components/VideoResultContainer.js';
 import StatBoxContainer from './components/StatBoxContainer.js';
 import InputHeader from './components/InputHeader.js';
 import BarChart from './components/BarChart.js';
+const Loader = require('react-loaders').Loader;
 
 
 class App extends Component {
@@ -66,7 +67,8 @@ class App extends Component {
         let statContainer;
         let content;
         if (this.state.isSearching) {
-            content = <div className="loading" />
+            content =
+                <Loader type="line-scale" active />
         }
         else if (!this.state.hasSearched) {
             content =
