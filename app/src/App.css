@@ -221,6 +221,7 @@ body {
 
 .video-link {
     width: 50%;
+    cursor: pointer;
 }
 
 .stat-box-container {
