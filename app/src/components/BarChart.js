@@ -1,6 +1,8 @@
 import { React, Component }  from 'react';
 import { Bar } from 'react-chartjs-2';
 
+const ONE_HOUR = 3600000 // One hour represented as milliseconds
+const START_TIME = new Date('December 24 1995').getTime(); // Argbitrary date. Just needed to get the hours.
 
 class BarChart extends Component {
     constructor(props) {
@@ -34,7 +36,13 @@ class BarChart extends Component {
                                     console.log(label);
 
                                     if (label) {
-                                        label = `During ${label}:00 there were`;
+                                        let hour = new Date(label).getHours();
+                                        let nextHour = hour + 1;
+
+                                        hour = convertTimes12HourClock(hour);
+                                        nextHour = convertTimes12HourClock(nextHour);
+
+                                        label = `Between ${hour} and ${nextHour}`;
                                     }
                                     
                                     return label;
@@ -64,6 +72,13 @@ class BarChart extends Component {
                         },
                         scales: {
                             xAxes: [{
+                                offset: true,
+                                categoryPercentage: 1.0,
+                                barPercentage: 1.0,
+                                type: 'time',
+                                time: {
+                                    unit: 'hour'
+                                },
                                 gridLines: {
                                     display: true,
                                     offsetGridLines: true,
@@ -108,7 +123,7 @@ function setGraphData(graphDataProps) {
     let xLabels = [];
     for (let idx in [...Array(24).keys()]) {
         let hour = String(idx).padStart(2, '0');
-        xLabels.push(hour)
+        xLabels.push(START_TIME + (idx * ONE_HOUR));
         data.push(graphDataProps.uploadTimeData[hour]);
     }
     let graphData = {
@@ -125,5 +140,14 @@ function setGraphData(graphDataProps) {
     }
     return graphData
 }
+
+
+function convertTimes12HourClock(hour) {
+    let suffix = (hour >= 12) ? 'PM' : 'AM';
+    hour = (hour % 12);
+    if (hour === 0) { hour = 12 };
+    return `${hour}${suffix}`;
+} 
+
 
 export default BarChart;
