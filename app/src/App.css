@@ -183,10 +183,6 @@ body {
     margin-bottom: 0;
 }
 
-.results-container {
-
-}
-
 .results-list {
     padding: 0;
 }
@@ -197,7 +193,8 @@ body {
 
 .video-result-container {
     display: flex;
-    border: 10px solid white;
+    background-color: #F8F5EB;
+    color: #1E1E31;
 }
 
 .video-data-container {
@@ -234,6 +231,7 @@ body {
 .video-link {
     width: 50%;
     cursor: pointer;
+    display: inline-flex;
 }
 
 .stat-box-container {
@@ -247,6 +245,8 @@ body {
     margin-right: 5%;
     width: 40%;
     border: 5px solid white;
+    background-color: #F8F5EB;
+    color: #1E1E31;
 }
 
 .all-stats-container {
