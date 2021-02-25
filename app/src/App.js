@@ -93,6 +93,7 @@ class App extends Component {
             content = 
                 <div className="content">
                     {statContainer}
+                    <h2 className="video-results-list-header">Popular Uploads</h2>
                     {resultsContainer}
                 </div>
         }
