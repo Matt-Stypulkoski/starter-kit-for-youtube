@@ -6,9 +6,9 @@ function VideoResultContainer(props) {
         <div className="results-container" id="results-container">
             <ul className="results-list">
                 {props.videoList.map(function (vidElement) {
-                    // vidElement -> [title, views, thumbnailURL, altText, datetimePublished, videoId]
+                    // vidElement -> [title, views, thumbnailURL, altText, datetimePublished, videoId, channelTitle, channelId]
                     return <VideoResult title={vidElement[0]} views={vidElement[1]} thumbnailURL={vidElement[2]}
-                                        altText={vidElement[3]} datetimePublished={vidElement[4]} videoId={vidElement[5]} />
+                        altText={vidElement[3]} datetimePublished={vidElement[4]} videoId={vidElement[5]} channelTitle={vidElement[6]} channelId={vidElement[7]} />
                 })}
             </ul>
         </div>

@@ -6,9 +6,13 @@ function VideoResult(props) {
 			<div className="video-result-container">
 				<div className="video-data-container">
 					<h3 className="video-title">{props.title}</h3>
+					<h3>By: <a href={'https://www.youtube.com/channel/' + props.channelId} target="_blank">{props.channelTitle}</a></h3>
 					<h4 className="video-views">Views: {parseInt(props.views).toLocaleString()}</h4>
 				</div>
-				<a id={props.videoId} className="video-link" target="_blank" onClick={() => setVideoUrl(props.videoId)}><img className="video-thumbnail" src={props.thumbnailURL} alt={props.altText} /></a>
+				<div>
+					<a id={props.videoId} className="video-link" target="_blank" onClick={() => setVideoUrl(props.videoId)}><img className="video-thumbnail" src={props.thumbnailURL} alt={props.altText} /></a>
+					<h5>Watch the video</h5>
+				</div>
 			</div>
 		</li>
 	)

@@ -8,8 +8,14 @@ function sortResults(results) {
     }
 
     for (let vid of results) {
+        //console.log(vid);
         const videoId = vid.id;
         const title = vid.snippet.title;
+        
+        const channelTitle = vid.snippet.channelTitle;
+        const channelId = vid.snippet.channelId;
+        console.log(channelTitle)
+        console.log(channelId)
 
         const views = vid.statistics.viewCount
         totalViews += parseInt(views);
@@ -22,7 +28,7 @@ function sortResults(results) {
 
         allTimesPublished[timePublished[1]] = allTimesPublished[timePublished[1]] + 1;
 
-        let videoData = [title, views, thumbnailURL, altText, datetimePublished, videoId]
+        let videoData = [title, views, thumbnailURL, altText, datetimePublished, videoId, channelTitle, channelId]
         unsortedVidList.push(videoData);
     }
 
