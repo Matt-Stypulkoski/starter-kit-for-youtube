@@ -22,6 +22,7 @@ function DateInput(props) {
                     showMonthDropdown
                     dropdownMode="select"
                     todayButton="Today"
+                    autoComplete="off"
                 />
                 <span> to </span>
                 <DatePicker
@@ -35,6 +36,7 @@ function DateInput(props) {
                     showMonthDropdown
                     dropdownMode="select"
                     todayButton="Today"
+                    autoComplete="off"
                 />
                 
                 <div className="date-tooltip">
