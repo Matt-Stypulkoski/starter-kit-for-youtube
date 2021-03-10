@@ -56,8 +56,4 @@ function DateInput(props) {
     )
 }
 
-
-function test(val) {
-    console.log(val);
-}
 export default DateInput;
