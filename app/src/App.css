@@ -207,6 +207,7 @@
 
     .video-result-container {
         display: flex;
+        flex-wrap: wrap;
         background-color: #F8F5EB;
         color: #1E1E31;
     }
@@ -214,10 +215,10 @@
     .video-data-container {
         display: flex;
         flex-wrap: wrap;
-        flex-direction: column;
-        width: 50%;
+        width: 100%;
         text-align: left;
-        font-size: 2vw;
+        font-size: .75rem;
+        justify-content: space-evenly;
     }
 
     .video-list-element {
@@ -226,14 +227,13 @@
     }
 
     .video-title {
-        width: 75%;
-        align-content: center;
-        justify-content: center;
+        width: 90%;
         margin: auto;
+        font-size: 1rem;
     }
 
-    .video-views {
-        width: 75%;
+    .video-channel-views {
+        width: 90%;
         margin: auto;
     }
 
@@ -242,7 +242,7 @@
     }
 
     .video-link {
-        width: 50%;
+        width: 100%;
         cursor: pointer;
         display: inline-flex;
     }
