@@ -14,8 +14,6 @@ function sortResults(results) {
         
         const channelTitle = vid.snippet.channelTitle;
         const channelId = vid.snippet.channelId;
-        console.log(channelTitle)
-        console.log(channelId)
 
         const views = vid.statistics.viewCount
         totalViews += parseInt(views);
