@@ -4,7 +4,7 @@ function VideoResult(props) {
 	return (
 		<li className="video-list-element">
 			<div className="video-result-container">
-				<div>
+				<div className="video-link-container">
 					<a id={props.videoId} className="video-link" target="_blank" onClick={() => setVideoUrl(props.videoId)}><img className="video-thumbnail" src={props.thumbnailURL} alt={props.altText} /></a>
 				</div>
 				<div className="video-data-container">
