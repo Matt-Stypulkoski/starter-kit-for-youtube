@@ -1,11 +1,12 @@
 [
     {
         "snippet": {
-            "title": "Test title 1",
+            "title": "Really long title that should go to multiple lines because it is so long and I can't believe a title could be this long it is extremely long no one will ever watch this video because of how long the title is",
             "thumbnails": {
                 "high": { "url": "https://i.ytimg.com/vi/ejys3sT2LHw/hqdefault.jpg" }
             },
-            "publishedAt": "2020-12-19T19:03:15Z"
+            "publishedAt": "2020-12-19T19:03:15Z",
+            "channelTitle": "Short"
         },
         "statistics": { "viewCount": 100000 }
     },
@@ -15,7 +16,8 @@
             "thumbnails": {
                 "high": { "url": "https://i.ytimg.com/vi/-evZvXLHdzA/hqdefault.jpg" }
             },
-            "publishedAt": "2020-12-19T19:03:15Z"
+            "publishedAt": "2020-12-19T19:03:15Z",
+            "channelTitle": "Very long channel name why would anyone ever make it this long"
         },
         "statistics": { "viewCount": 150000 }
     },
@@ -25,7 +27,8 @@
             "thumbnails": {
                 "high": { "url": "https://i.ytimg.com/vi/l9qMaHg6Dw0/hqdefault.jpg" }
             },
-            "publishedAt": "2020-12-19T03:03:15Z"
+            "publishedAt": "2020-12-19T03:03:15Z",
+            "channelTitle": "Normal Length Name"
         },
         "statistics": { "viewCount": 200000 }
     },
@@ -35,7 +38,8 @@
             "thumbnails": {
                 "high": { "url": "https://i.ytimg.com/vi/Sr_teBk_lIc/hqdefault.jpg" }
             },
-            "publishedAt": "2020-12-19T12:03:15Z"
+            "publishedAt": "2020-12-19T12:03:15Z",
+            "channelTitle": "ABC"
         },
         "statistics": { "viewCount": 5050 }
     },
@@ -45,7 +49,8 @@
             "thumbnails": {
                 "high": { "url": "https://i.ytimg.com/vi/faMFeVBtq9I/hqdefault.jpg" }
             },
-            "publishedAt": "2020-12-19T18:03:15Z"
+            "publishedAt": "2020-12-19T18:03:15Z",
+            "channelTitle": "áéíóúüñ¿¡"
         },
         "statistics": { "viewCount": 1000000 }
     },
@@ -55,7 +60,8 @@
             "thumbnails": {
                 "high": { "url": "https://i.ytimg.com/vi/l9qMaHg6Dw0/hqdefault.jpg" }
             },
-            "publishedAt": "2020-12-19T03:03:15Z"
+            "publishedAt": "2020-12-19T03:03:15Z",
+            "channelTitle": "äöüß"
         },
         "statistics": { "viewCount": 123456 }
     },
@@ -65,7 +71,8 @@
             "thumbnails": {
                 "high": { "url": "https://i.ytimg.com/vi/l9qMaHg6Dw0/hqdefault.jpg" }
             },
-            "publishedAt": "2020-12-19T03:03:15Z"
+            "publishedAt": "2020-12-19T03:03:15Z",
+            "channelTitle": "1234567890"
         },
         "statistics": { "viewCount": 10900 }
     },
@@ -75,7 +82,8 @@
             "thumbnails": {
                 "high": { "url": "https://i.ytimg.com/vi/l9qMaHg6Dw0/hqdefault.jpg" }
             },
-            "publishedAt": "2020-12-19T03:03:15Z"
+            "publishedAt": "2020-12-19T03:03:15Z",
+            "channelTitle": "Punctuation test: !@#$%^&*()-_=+{}\\|?/>.<,`~"
         },
         "statistics": { "viewCount": 1000040 }
     },
@@ -85,7 +93,8 @@
             "thumbnails": {
                 "high": { "url": "https://i.ytimg.com/vi/l9qMaHg6Dw0/hqdefault.jpg" }
             },
-            "publishedAt": "2020-12-19T11:03:15Z"
+            "publishedAt": "2020-12-19T11:03:15Z",
+            "channelTitle": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         },
         "statistics": { "viewCount": 2000000 }
     },
@@ -95,7 +104,8 @@
             "thumbnails": {
                 "high": { "url": "https://i.ytimg.com/vi/l9qMaHg6Dw0/hqdefault.jpg" }
             },
-            "publishedAt": "2020-12-19T13:03:15Z"
+            "publishedAt": "2020-12-19T13:03:15Z",
+            "channelTitle": "Test Channel"
         },
         "statistics": { "viewCount": 100500 }
     },
@@ -105,7 +115,8 @@
             "thumbnails": {
                 "high": { "url": "https://i.ytimg.com/vi/l9qMaHg6Dw0/hqdefault.jpg" }
             },
-            "publishedAt": "2020-12-19T13:03:15Z"
+            "publishedAt": "2020-12-19T13:03:15Z",
+            "channelTitle": "Test Channel Gaming"
         },
         "statistics": { "viewCount": 500000 }
     }
