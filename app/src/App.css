@@ -1,8 +1,5 @@
 @import 'loaders.css/loaders.min.css';
 
-
-
-
 body {
     margin: 0;
 }
@@ -35,19 +32,17 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 90%;
+    margin: auto;
 }
 
 .loader-active {
     transform: scale(1.5);
 }
 
-
-/* Search Criteria CSS */
-
 .search-container {
     display: flex;
     flex-wrap: wrap;
-    border: 5px solid white;
     position: relative;
     padding: 2%;
     margin: 5%;
@@ -78,8 +73,6 @@ body {
     color: white;
     height: 2rem;
 }
-
-
 
 .react-datepicker-wrapper,
 .react-datepicker__input-container,
@@ -132,7 +125,6 @@ body {
     }
 }
 
-/* Region Menu */
 .region-select-container {
     position: relative;
     display: inline-block;
@@ -165,29 +157,6 @@ body {
     padding: 0;
     background-color: inherit;
     color: white;
-}
-
-.region-name {
-    background-color: var(--background-color);
-}
-
-.region-btn {
-    font-family: inherit;
-    border: 0;
-    padding: 0;
-    text-align: left;
-    width: 100%;
-    background-color: inherit;
-    color: white;
-}
-
-/****************/
-
-/*****************************/
-
-.content {
-    margin: auto;
-    width: 80%;
 }
 
 .video-results-list-header {
@@ -254,14 +223,11 @@ body {
 .stat-box-container {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .stat-box {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 40%;
-    border: 5px solid white;
+    width: 45%;
     background-color: #F8F5EB;
     color: #1E1E31;
 }
@@ -270,6 +236,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
 .bar-chart-container {
@@ -284,307 +251,48 @@ canvas {
 }
 
 @media only screen and (min-width: 768px) {
-    body {
-        margin: 0;
-    }
-
-    .App {
-        text-align: center;
-        background-color: #1E1E31;
-        min-height: 100vh;
-        font-size: calc(10px + 2vmin);
-        color: white;
-        overflow: auto;
-        font-family: 'Yu Gothic', sans-serif;
-    }
-
-    .header {
-        display: flex;
-        background-color: #F8F5EB;
-        color: red;
-    }
-
-        .header h2 {
-            margin: auto;
-        }
-
-        .header FontAwesome {
-            position: absolute;
-        }
-
-    .content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 
     .loader-active {
         transform: scale(2);
     }
 
-
-    /* Search Criteria CSS */
-
-    .search-container {
-        display: flex;
-        flex-wrap: wrap;
-        border: 5px solid white;
-        position: relative;
-        padding: 2%;
-        margin: 5%;
-        background-color: #F8F5EB;
-        color: #1E1E31;
-        justify-content: center;
-        flex-direction: column;
-    }
-
     .search-parameter-container {
-        display: flex;
         height: 3rem;
         margin-bottom: 2rem;
     }
 
-    .search-parameter-label {
-        width: 40%;
-        text-align: right;
-    }
-
     .search-parameter-input {
-        text-align: left;
         width: auto;
     }
 
     #search-btn {
-        margin: auto;
-        background-color: #c40000;
-        color: white;
         width: 15%;
-        height: 2rem;
     }
 
     .react-datepicker-wrapper,
     .react-datepicker__input-container,
     .react-datepicker__input-container input {
-        padding: 0 5px 0 5px;
         height: 1rem;
-        padding: 0;
         width: auto;
     }
 
-    .react-datepicker__tab-loop {
-        display: inline-block;
-    }
-
     .date-tooltip {
-        display: inline-block;
-        position: relative;
-        top: -1em;
         padding-left: 5px;
-        font-size: 12px;
-    }
 
-    .tooltip-text {
-        visibility: hidden;
-        position: absolute;
-        z-index: 1;
-        font-size: 12px;
-        background: white;
-        padding: 5px;
-        width: 100px;
-    }
-
-    [class*="date-tooltip"]:hover .tooltip-text {
-        visibility: visible;
-        animation: fade-in 0.5s linear
-    }
-
-    @keyframes fade-in {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 100;
-        }
-    }
-
-    /* Region Menu */
-    .region-select-container {
-        position: relative;
-        display: inline-block;
-        text-align: start;
-        width: 100%;
-    }
-
-    .menu-arrow {
-        padding-left: 5px;
-    }
-
-    .region-list-dropdown {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        height: 500px;
-    }
-
-    .region-ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        overflow: auto;
-        height: 100%;
-    }
-
-    .region-menu-btn {
-        font-family: inherit;
-        border: 0;
-        padding: 0;
-        background-color: inherit;
-        color: white;
-    }
-
-    .region-name {
-        background-color: var(--background-color);
-    }
-
-    .region-btn {
-        font-family: inherit;
-        border: 0;
-        padding: 0;
-        text-align: left;
-        width: 100%;
-        background-color: inherit;
-        color: white;
-    }
-
-    /****************/
-
-    /*****************************/
-
-    .content {
-        margin: auto;
-        width: 80%;
-    }
-
-    .video-results-list-header {
-        width: 100%;
-        text-align: start;
-        border-bottom: 1px solid gray;
-        margin-bottom: 0;
-    }
-
-    .results-list {
-        padding: 0;
-    }
-
-    .popular-videos-header {
-        text-align: left;
-    }
-
-    .video-result-container {
-        display: flex;
-        background-color: #F8F5EB;
-        color: #1E1E31;
-        flex-wrap: wrap;
     }
 
     .video-data-container {
-        display: flex;
-        flex-wrap: wrap;
-        /* flex-direction: column; */
-        width: 100%;
-        text-align: left;
         font-size: 1.25rem;
-        justify-content: space-evenly;
-    }
-
-    .video-list-element {
-        list-style-type: none;
-        margin-bottom: 5%;
     }
 
     .video-title {
-        width: 90%;
         align-content: center;
         justify-content: center;
-        margin: auto;
         font-size: 1.5rem;
-    }
-
-    .video-channel-views {
-        width: 90%;
-        margin: auto;
-    }
-
-    .video-views {
-        width: 75%;
-        margin: auto;
-    }
-
-    .video-thumbnail {
-        width: 100%;
-    }
-
-    .video-link {
-        cursor: pointer;
-        display: inline-flex;
-    }
-
-    .stat-box-container {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .stat-box {
-        margin-left: 5%;
-        margin-right: 5%;
-        width: 40%;
-        border: 5px solid white;
-        background-color: #F8F5EB;
-        color: #1E1E31;
-    }
-
-    .all-stats-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .bar-chart-container {
-        margin: 5% 0;
-        width: 100%;
-        height: 50%;
-    }
-
-    canvas {
-        margin: auto;
-        background-color: #f8f5eb;
     }
 }
 
 @media only screen and (min-width: 1024px) {
-    /* li {
-        page-break-inside: avoid;
-        break-inside: avoid-column;
-    }
-
-    ul {
-        column-width: 300px;
-        column-count: 2;
-    } */
-    /* ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        width: 100%;
-
-    }
-    li {
-        width: 45%;
-        list-style-type: none;
-
-    } */
     .results-container {
         width: 100%;
     }
