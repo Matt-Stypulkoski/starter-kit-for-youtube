@@ -25,7 +25,7 @@ function DateInput(props) {
                     autoComplete="off"
                     popperPlacement="bottom"
                 />
-                <span> to </span>
+                <span>to</span>
                 <DatePicker
                     id="published-before"
                     placeholderText="Select End Date"

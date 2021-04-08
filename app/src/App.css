@@ -351,6 +351,7 @@ canvas {
 
     .search-parameter-input {
         text-align: left;
+        width: auto;
     }
 
     #search-btn {
@@ -367,6 +368,7 @@ canvas {
         padding: 0 5px 0 5px;
         height: 1rem;
         padding: 0;
+        width: auto;
     }
 
     .react-datepicker__tab-loop {
