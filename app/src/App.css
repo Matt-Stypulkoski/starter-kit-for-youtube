@@ -562,3 +562,39 @@ canvas {
         background-color: #f8f5eb;
     }
 }
+
+@media only screen and (min-width: 1024px) {
+    /* li {
+        page-break-inside: avoid;
+        break-inside: avoid-column;
+    }
+
+    ul {
+        column-width: 300px;
+        column-count: 2;
+    } */
+    /* ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+
+    }
+    li {
+        width: 45%;
+        list-style-type: none;
+
+    } */
+    .results-container {
+        width: 100%;
+    }
+
+    ul {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 350px);
+        justify-content: space-between;
+        grid-gap: 1em;
+
+    }
+}
