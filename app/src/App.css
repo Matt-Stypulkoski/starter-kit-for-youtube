@@ -41,7 +41,6 @@ body {
 }
 
 .search-container {
-    display: flex;
     flex-wrap: wrap;
     position: relative;
     padding: 2%;
@@ -256,6 +255,10 @@ canvas {
         transform: scale(2);
     }
 
+    .search-container {
+        display: flex;
+    }
+
     .search-parameter-container {
         height: 3rem;
         margin-bottom: 2rem;
@@ -272,7 +275,7 @@ canvas {
     .react-datepicker-wrapper,
     .react-datepicker__input-container,
     .react-datepicker__input-container input {
-        height: 1rem;
+        height: 2.75em;
         width: auto;
     }
 
@@ -304,5 +307,17 @@ canvas {
         justify-content: space-between;
         grid-gap: 1em;
 
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .search-parameter-input {
+        font-size: .5em;
+    }
+
+    .react-datepicker-wrapper,
+    .react-datepicker__input-container,
+    .react-datepicker__input-container input {
+        height: 3.3em;
     }
 }
