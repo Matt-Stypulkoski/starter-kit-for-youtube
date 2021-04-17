@@ -36,8 +36,6 @@ body {
     font-family: Roboto, sans-serif;
     align-content: center;
     font-size: 1em;
-    flex: 1 50%;
-    margin-left: -40px;
 }
 
 .header FontAwesome {
