@@ -62,12 +62,13 @@ body {
     background-color: #F8F5EB;
     color: #1E1E31;
     justify-content: center;
-    flex-direction: column;
+    display: flex;
 }
 
 .search-parameter-container {
     display: flex;
-    margin-bottom: 1rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
 }
 
 .search-parameter-label {
@@ -76,8 +77,8 @@ body {
 }
 
 .search-parameter-input {
-    text-align: left;
     width: 50%;
+    box-sizing: border-box;
 }
 
 #search-btn {
@@ -90,10 +91,8 @@ body {
 .react-datepicker-wrapper,
 .react-datepicker__input-container,
 .react-datepicker__input-container input {
-    padding: 0 5px 0 5px;
-    padding: 0;
-    width: 90%;
-    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .react-datepicker__tab-loop {
@@ -285,23 +284,11 @@ canvas {
     }
 
     .search-parameter-container {
-        height: 3rem;
-        margin-bottom: 2rem;
-    }
-
-    .search-parameter-input {
-        width: auto;
+        margin-bottom: 1rem;
     }
 
     #search-btn {
         width: 15%;
-    }
-
-    .react-datepicker-wrapper,
-    .react-datepicker__input-container,
-    .react-datepicker__input-container input {
-        height: 2.75em;
-        width: auto;
     }
 
     .date-tooltip {
@@ -344,7 +331,7 @@ canvas {
     .react-datepicker-wrapper,
     .react-datepicker__input-container,
     .react-datepicker__input-container input {
-        height: 3.3em;
+        /* height: 3.3em; */
     }
 }
 

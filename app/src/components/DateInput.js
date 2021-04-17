@@ -25,7 +25,6 @@ function DateInput(props) {
                     autoComplete="off"
                     popperPlacement="bottom"
                 />
-                <span>to</span>
                 <DatePicker
                     id="published-before"
                     placeholderText="Select End Date"
@@ -40,20 +39,21 @@ function DateInput(props) {
                     autoComplete="off"
                     popperPlacement="bottom"
                 />
-                
-                <div className="date-tooltip">
-                    <FontAwesomeIcon icon={faInfoCircle} />
-                    <span class="tooltip-text">
-                        The date parameter causes the search to
-                        only return videos published between the
-                        two dates. One or both fields can be left blank.
-                        If left blank, the search will not take that date
-                        boundary into account.
-                    </span>
-                </div>
+
             </div>
     </div>
     )
 }
 
 export default DateInput;
+
+{/* <div className="date-tooltip">
+<FontAwesomeIcon icon={faInfoCircle} />
+<span class="tooltip-text">
+    The date parameter causes the search to
+    only return videos published between the
+    two dates. One or both fields can be left blank.
+    If left blank, the search will not take that date
+    boundary into account.
+</span>
+</div>  */}
