@@ -6,8 +6,10 @@ function Header(props) {
 
     return (
         <header className="header">
-            <FontAwesomeIcon icon={faYoutube} />
-            <h2>Youtube Starter Kit</h2>
+            <div className="header-container">
+                <img className="logo" />
+                <h2>Starter Kit For Youtube</h2>
+            </div>
         </header>
     );
 }

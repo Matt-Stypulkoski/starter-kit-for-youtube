@@ -11,17 +11,33 @@ body {
     font-size: calc(10px + 2vmin);
     color: white;
     overflow: auto;
-    font-family: 'Yu Gothic', sans-serif;
+    font-family: 'Yu Gothic', sans-serif;;
 }
 
 .header {
-    display: flex;
     background-color: #F8F5EB;
     color: red;
 }
 
+.header-container {
+    display: flex;
+    max-width: 80%;
+}
+
+.logo {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: .5rem;
+    content: url('images/favicon.png');
+}
+
 .header h2 {
     margin: auto;
+    font-family: Roboto, sans-serif;
+    align-content: center;
+    font-size: 1em;
+    flex: 1 50%;
+    margin-left: -40px;
 }
 
 .header FontAwesome {
@@ -251,6 +267,17 @@ canvas {
 
 @media only screen and (min-width: 768px) {
 
+    .logo {
+        content: url('images/youtube_starter_kit_logo_768.png');
+        margin-left: 1rem;
+    }
+
+    .header h2 {
+        font-size: 1.5em;
+        margin: auto 0 auto 1rem;
+        flex: none;
+    }
+
     .loader-active {
         transform: scale(2);
     }
@@ -311,6 +338,7 @@ canvas {
 }
 
 @media only screen and (min-width: 1440px) {
+
     .search-parameter-input {
         font-size: .5em;
     }
@@ -320,4 +348,11 @@ canvas {
     .react-datepicker__input-container input {
         height: 3.3em;
     }
+}
+
+@media only screen and (min-width: 2560px) {
+    .logo {
+        content: url('images/youtube_starter_kit_logo_1440.png');
+    }
+
 }
