@@ -4,6 +4,8 @@ body {
     margin: 0;
 }
 
+
+
 .App {
     text-align: center;
     background-color: #1E1E31;
@@ -262,6 +264,23 @@ canvas {
     background-color: #f8f5eb;
 }
 
+@media only screen and (min-width: 520px) {
+
+    .search-parameter-input {
+        display: flex;
+    }
+    
+    .react-datepicker__input-container {
+        height: 100%;
+    }
+
+    .react-datepicker__input-container #published-before, 
+    .react-datepicker__input-container #published-after {
+        height: inherit;
+    }
+}
+
+
 @media only screen and (min-width: 768px) {
 
     .logo {
@@ -285,6 +304,15 @@ canvas {
 
     .search-parameter-container {
         margin-bottom: 1rem;
+    }
+
+    .react-datepicker__input-container {
+        height: 100%;
+    }
+
+    .react-datepicker__input-container #published-before, 
+    .react-datepicker__input-container #published-after {
+        height: inherit;
     }
 
     #search-btn {
