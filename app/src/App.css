@@ -10,20 +10,27 @@ body {
     text-align: center;
     background-color: #1E1E31;
     min-height: 100vh;
-    font-size: calc(10px + 2vmin);
+    /* font-size: calc(10px + 2vmin); */
+    font-size: .875rem;
     color: white;
     overflow: auto;
     font-family: 'Yu Gothic', sans-serif;;
 }
 
+h2 {
+    font-size: 1rem;
+}
+
 .header {
     background-color: #F8F5EB;
     color: red;
+    align-content: center;
 }
 
 .header-container {
     display: flex;
-    max-width: 80%;
+    max-width: 1024px;
+    margin: auto;
 }
 
 .logo {
@@ -37,11 +44,6 @@ body {
     margin: auto;
     font-family: Roboto, sans-serif;
     align-content: center;
-    font-size: 1em;
-}
-
-.header FontAwesome {
-    position: absolute;
 }
 
 .content {
@@ -49,6 +51,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     width: 90%;
+    max-width: 1024px;
     margin: auto;
 }
 
@@ -59,12 +62,13 @@ body {
 .search-container {
     flex-wrap: wrap;
     position: relative;
-    padding: 2%;
-    margin: 5%;
+    padding: 1rem;
+    margin: 2rem auto;
     background-color: #F8F5EB;
     color: #1E1E31;
     justify-content: center;
     display: flex;
+    width: 100%;
 }
 
 .search-parameter-container {
@@ -269,7 +273,7 @@ canvas {
     .search-parameter-input {
         display: flex;
     }
-    
+
     .react-datepicker__input-container {
         height: 100%;
     }
@@ -277,6 +281,14 @@ canvas {
     .react-datepicker__input-container #published-before, 
     .react-datepicker__input-container #published-after {
         height: inherit;
+    }
+
+    .search-parameter-label {
+        width: 30%;
+    }
+
+    .search-parameter-input {
+        width: 100%;
     }
 }
 
@@ -304,15 +316,6 @@ canvas {
 
     .search-parameter-container {
         margin-bottom: 1rem;
-    }
-
-    .react-datepicker__input-container {
-        height: 100%;
-    }
-
-    .react-datepicker__input-container #published-before, 
-    .react-datepicker__input-container #published-after {
-        height: inherit;
     }
 
     #search-btn {
@@ -348,6 +351,7 @@ canvas {
         grid-gap: 1em;
 
     }
+    
 }
 
 @media only screen and (min-width: 1440px) {

@@ -68,11 +68,15 @@ class App extends Component {
         let content;
         if (this.state.isSearching) {
             content =
-                <Loader type="line-scale" active />
+                <div className="content">
+                    <InputHeader onSearch={this.getSearchResults} isSearching={this.setLoader} />
+                    <Loader type="line-scale" active />
+                </div>
         }
         else if (!this.state.hasSearched) {
             content =
                 <div className="content">
+                    <InputHeader onSearch={this.getSearchResults} isSearching={this.setLoader} />
                     <p>Enter a search term to display results</p>
                 </div>
         } else {
@@ -92,6 +96,7 @@ class App extends Component {
                 </div>
             content = 
                 <div className="content">
+                    <InputHeader onSearch={this.getSearchResults} isSearching={this.setLoader} />
                     {statContainer}
                     <h2 className="video-results-list-header">Popular Uploads</h2>
                     {resultsContainer}
@@ -100,7 +105,6 @@ class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <InputHeader onSearch={this.getSearchResults} isSearching={this.setLoader} />
                 {content}
             </div>
         );
