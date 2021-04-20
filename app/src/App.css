@@ -8,7 +8,6 @@ body {
     text-align: center;
     background-color: #1E1E31;
     min-height: 100vh;
-    /* font-size: calc(10px + 2vmin); */
     font-size: .875rem;
     color: white;
     overflow: auto;
@@ -110,30 +109,6 @@ h2 {
     top: 1rem;
 }
 
-.date-tooltip {
-    display: inline-block;
-    position: relative;
-    top: -1em;
-    font-size: 12px;
-}
-
-.tooltip-text {
-    visibility: hidden;
-    position: absolute;
-    z-index: 1;
-    font-size: 12px;
-    background: white;
-    padding: 5px;
-    width: 100px;
-    left: -50px;
-    display: block;
-}
-
-[class*="date-tooltip"]:hover .tooltip-text {
-    visibility: visible;
-    animation: fade-in 0.5s linear
-}
-
 @keyframes fade-in {
     0% {
         opacity: 0;
@@ -149,10 +124,6 @@ h2 {
     display: inline-block;
     text-align: start;
     width: 100%;
-}
-
-.menu-arrow {
-    padding-left: 5px;
 }
 
 .region-list-dropdown {
@@ -351,7 +322,6 @@ canvas {
         grid-template-columns: repeat(auto-fill, 350px);
         justify-content: space-between;
         grid-gap: 1em;
-
     }
     
 }
@@ -360,12 +330,6 @@ canvas {
 
     .search-parameter-input {
         font-size: .75em;
-    }
-
-    .react-datepicker-wrapper,
-    .react-datepicker__input-container,
-    .react-datepicker__input-container input {
-        /* height: 3.3em; */
     }
 }
 
