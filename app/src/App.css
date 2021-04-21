@@ -269,7 +269,7 @@ canvas {
 @media only screen and (min-width: 768px) {
 
     .logo {
-        content: url('images/youtube_starter_kit_logo_768.png');
+        content: url('images/logo_768.png');
         margin-left: 1rem;
     }
 
@@ -335,7 +335,7 @@ canvas {
 
 @media only screen and (min-width: 2560px) {
     .logo {
-        content: url('images/youtube_starter_kit_logo_1440.png');
+        content: url('images/logo_1440.png');
     }
 
 }
