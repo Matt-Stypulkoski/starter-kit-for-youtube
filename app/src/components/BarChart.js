@@ -10,7 +10,6 @@ class BarChart extends Component {
         let graphData = setGraphData(this.props)
 
         this.state = {
-            key: this.props.datasetKeyProvider,
             uploadData: this.props.uploadTimeData,
             graphData: graphData
         }
