@@ -1,36 +1,35 @@
 import { React, Component } from 'react';
+import axios from 'axios';
 import getUserCountry from '../scripts/getUserCountry.js';
 const contentRegions = require('../data/contentRegions.json');
 
 
+let cancelToken = axios.CancelToken.source();
 
 class RegionSelection extends Component {
     constructor(props) {
         super(props);
-        this.getUserCountryData = this.getUserCountryData.bind(this);
         this.state = {
             currentRegion: null,
             regionList: contentRegions,
-            regionCode: null
+            regionCode: null,
         }
     }
 
-    getUserCountryData() {
-        return getUserCountry()
-            .then(res => {
-                this.setState({
-                    currentRegion: res.country,
-                    regionCode: res.code
-                })
-            })
+    componentDidMount() {
+        getUserCountry(cancelToken).then(res => {
+            this.setState({
+                currentRegion: res.country,
+                regionCode: res.code
+            });
+        })
     }
 
-    componentDidMount() {
-        this.getUserCountryData();
+    componentWillUnmount() {
+        cancelToken.cancel();
     }
 
     render() {
-        console.log(this.state)
         return (
             <div className='search-parameter-container'>
                 <label className="search-parameter-label" htmlFor="region-select">region:</label>
