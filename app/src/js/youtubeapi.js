@@ -59,7 +59,4 @@ function youtubeSearch(searchParams) {
         })
 }
 
-function translateDateToRFC3339(date) {
-}
-
 export { youtubeSearch };
