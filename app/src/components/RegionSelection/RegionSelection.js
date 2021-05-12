@@ -1,6 +1,6 @@
 import { React, Component } from 'react';
 import axios from 'axios';
-import getUserCountry from '../../scripts/getUserCountry.js';
+import getUserCountry from '../../js/getUserCountry.js';
 const contentRegions = require('../../data/contentRegions.json');
 
 

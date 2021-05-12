@@ -1,7 +1,7 @@
 import { React, Component } from 'react';
 import DateInput from '../DateInput/DateInput.js';
-import { youtubeSearch } from '../../scripts/youtubeapi.js';
-import sortResults from '../../scripts/sortResults.js';
+import { youtubeSearch } from '../../js/youtubeapi.js';
+import sortResults from '../../js/sortResults.js';
 import RegionSelection from '../RegionSelection/RegionSelection.js';
 const mockData = require('../../test/MockVideoResults.json');
 
