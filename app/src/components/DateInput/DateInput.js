@@ -44,14 +44,3 @@ function DateInput(props) {
 }
 
 export default DateInput;
-
-{/* <div className="date-tooltip">
-<FontAwesomeIcon icon={faInfoCircle} />
-<span class="tooltip-text">
-    The date parameter causes the search to
-    only return videos published between the
-    two dates. One or both fields can be left blank.
-    If left blank, the search will not take that date
-    boundary into account.
-</span>
-</div>  */}
