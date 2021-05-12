@@ -12,16 +12,11 @@ function youtubeSearch(searchParams) {
     */
     let keyword = searchParams.q;
     if (keyword === "") {
-        console.log("You must input a keyword to search for.");
         return Promise.reject(new Error("You must input a keyword to search for."))
     }
-    console.log(`Searching through youtube for ${keyword}`);
 
     let publishedBefore = (searchParams.publishedBefore !== '') ? new Date(searchParams.publishedBefore).toISOString() : new Date().toISOString();
     let publishedAfter = (searchParams.publishedAfter !== '') ? new Date(searchParams.publishedAfter).toISOString() : '1970-01-01T00:00:00Z';
-
-    console.log(publishedBefore)
-    console.log(publishedAfter)
 
     return axios.get(`https://youtube.googleapis.com/youtube/v3/search`, {
         params: {
@@ -36,8 +31,6 @@ function youtubeSearch(searchParams) {
         }
     })
         .then(res => {
-            console.log("Search Results:\n");
-            console.log(res);
             let videoList = res.data.items;
             let vidIdList = [];
             for (let i = 0; i < videoList.length; i++) {
@@ -52,8 +45,6 @@ function youtubeSearch(searchParams) {
                 }
             })
                 .then((result) => {
-                    console.log("Video Results:\n");
-                    console.log(result);
                     return result.data.items;
                 });
         })

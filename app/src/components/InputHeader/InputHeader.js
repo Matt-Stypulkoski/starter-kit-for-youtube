@@ -20,13 +20,10 @@ class InputHeader extends Component {
     runSearch() {
         this.props.isSearching();
         const keyword = document.getElementById("search-keyword").value;
-        console.log(keyword);
         this.setState({ keyword: keyword });
         let regionCode = document.getElementById("region-select").value;
         const publishedAfter = document.getElementById("published-after").value;
         const publishedBefore = document.getElementById("published-before").value;
-        console.log(publishedAfter);
-        console.log(publishedAfter === '')
 
         let searchParams = {
             'q': keyword,

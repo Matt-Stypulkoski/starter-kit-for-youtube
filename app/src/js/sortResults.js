@@ -8,7 +8,6 @@ function sortResults(results) {
     }
 
     for (let vid of results) {
-        //console.log(vid);
         const videoId = vid.id;
         const title = vid.snippet.title;
         
@@ -29,8 +28,6 @@ function sortResults(results) {
         let videoData = [title, views, thumbnailURL, altText, datetimePublished, videoId, channelTitle, channelId]
         unsortedVidList.push(videoData);
     }
-
-    console.log(allTimesPublished);
 
     let sortedVidList = unsortedVidList.sort(function (a, b) {
         return b[1] - a[1];
