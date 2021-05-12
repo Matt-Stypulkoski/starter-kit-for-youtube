@@ -72,8 +72,6 @@ class BarChart extends Component {
                         scales: {
                             xAxes: [{
                                 offset: true,
-                                categoryPercentage: 1.0,
-                                barPercentage: 1.0,
                                 type: 'time',
                                 time: {
                                     unit: 'hour'
@@ -133,6 +131,8 @@ function setGraphData(graphDataProps) {
                 borderColor: 'rgba(0,0,0,1)',
                 hoverBackgroundColor: 'rgba(138,0,0,1)',
                 borderWidth: 1,
+                barPercentage: 1.0,
+                categoryPercentage: 1.0,
                 data: data
             }
         ]
