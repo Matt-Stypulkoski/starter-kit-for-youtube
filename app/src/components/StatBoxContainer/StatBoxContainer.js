@@ -1,5 +1,5 @@
 import { React } from 'react';
-import StatBox from './StatBox.js';
+import StatBox from '../StatBox/StatBox.js';
 
 function StatBoxContainer(props) {
     return (

@@ -1,7 +1,7 @@
 import { React, Component } from 'react';
 import axios from 'axios';
-import getUserCountry from '../scripts/getUserCountry.js';
-const contentRegions = require('../data/contentRegions.json');
+import getUserCountry from '../../scripts/getUserCountry.js';
+const contentRegions = require('../../data/contentRegions.json');
 
 
 let cancelToken = axios.CancelToken.source();

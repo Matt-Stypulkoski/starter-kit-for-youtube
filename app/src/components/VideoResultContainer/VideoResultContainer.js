@@ -1,5 +1,5 @@
 import { React } from 'react';
-import VideoResult from './VideoResult.js';
+import VideoResult from '../VideoResult/VideoResult.js';
 
 function VideoResultContainer(props) {
     return (

@@ -1,9 +1,9 @@
 import { React, Component } from 'react';
-import DateInput from './DateInput.js';
-import { youtubeSearch } from '../scripts/youtubeapi.js';
-import sortResults from '../scripts/sortResults.js';
-import RegionSelection from './RegionSelection.js';
-const mockData = require('../test/MockVideoResults.json');
+import DateInput from '../DateInput/DateInput.js';
+import { youtubeSearch } from '../../scripts/youtubeapi.js';
+import sortResults from '../../scripts/sortResults.js';
+import RegionSelection from '../RegionSelection/RegionSelection.js';
+const mockData = require('../../test/MockVideoResults.json');
 
 class InputHeader extends Component {
     constructor(props) {

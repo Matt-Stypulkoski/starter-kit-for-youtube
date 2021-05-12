@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`displays props 1`] = `
+<div
+  className="stat-box-container"
+>
+  <div
+    className="stat-box"
+  >
+    <h2
+      className="stat-value"
+    >
+      20
+    </h2>
+    <h4
+      className="stat-label"
+    >
+      test
+    </h4>
+  </div>
+</div>
+`;

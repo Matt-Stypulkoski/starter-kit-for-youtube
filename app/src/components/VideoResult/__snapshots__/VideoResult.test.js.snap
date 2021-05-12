@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with props displayed 1`] = `
+<li
+  className="video-list-element"
+>
+  <div
+    className="video-result-container"
+  >
+    <div
+      className="video-link-container"
+    >
+      <a
+        className="video-link"
+        id={0}
+        onClick={[Function]}
+        target="_blank"
+      >
+        <img
+          alt="Test Img"
+          className="video-thumbnail"
+          src="../../test/videoResultTest.png"
+        />
+      </a>
+    </div>
+    <div
+      className="video-data-container"
+    >
+      <h3
+        className="video-title"
+      >
+        Test title
+      </h3>
+      <div
+        className="video-channel-views"
+      >
+        <h4>
+          <a
+            href="https://www.youtube.com/channel/0"
+            target="_blank"
+          >
+            Test channel
+          </a>
+          <span>
+             - 
+          </span>
+          0
+           views
+        </h4>
+      </div>
+    </div>
+  </div>
+</li>
+`;

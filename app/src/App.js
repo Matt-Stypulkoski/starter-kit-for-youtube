@@ -1,10 +1,10 @@
 import './App.css';
 import { React, Component } from 'react';
-import Header from './components/Header.js';
-import VideoResultContainer from './components/VideoResultContainer.js';
-import StatBoxContainer from './components/StatBoxContainer.js';
-import InputHeader from './components/InputHeader.js';
-import BarChart from './components/BarChart.js';
+import Header from './components/Header/Header.js';
+import VideoResultContainer from './components/VideoResultContainer/VideoResultContainer.js';
+import StatBoxContainer from './components/StatBoxContainer/StatBoxContainer.js';
+import InputHeader from './components/InputHeader/InputHeader.js';
+import BarChart from './components/BarChart/BarChart.js';
 const Loader = require('react-loaders').Loader;
 
 

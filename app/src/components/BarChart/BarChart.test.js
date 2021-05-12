@@ -18,6 +18,6 @@ jest.mock('react-chartjs-2', () => ({
     Bar: () => null,
 }));
 
-it('BarChart renders', () => {
+it('renders', () => {
     const {barChart} = render(<BarChart uploadTimeData={mockUploadTimes} />);
 }); 
