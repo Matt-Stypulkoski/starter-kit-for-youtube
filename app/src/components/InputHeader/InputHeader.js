@@ -3,18 +3,12 @@ import DateInput from '../DateInput/DateInput.js';
 import { youtubeSearch } from '../../js/youtubeapi.js';
 import sortResults from '../../js/sortResults.js';
 import RegionSelection from '../RegionSelection/RegionSelection.js';
-const mockData = require('../../test/MockVideoResults.json');
 
 class InputHeader extends Component {
     constructor(props) {
         super(props)
         this.runSearch = this.runSearch.bind(this);
-        this.runSearchWithMockData = this.runSearchWithMockData.bind(this);
         this.fireOnEnter = this.fireOnEnter.bind(this);;
-        this.state = {
-            testEnv: false, // If true, use mock data and don't run api
-            mockData: mockData
-        };
     }
 
     runSearch() {    
@@ -43,15 +37,6 @@ class InputHeader extends Component {
             .catch(err => alert(err));
     }
 
-    runSearchWithMockData(data) {
-        this.props.isSearching();
-        // timeout to test loading animation with mock data
-        setTimeout(() => {
-            let viewResults = sortResults(data);
-            this.props.onSearch(viewResults[0], viewResults[1], viewResults[2], viewResults[3]);
-        }, 2000);
-    }
-
     fireOnEnter() {
         let input = document.getElementById("search-keyword");
         input.addEventListener("keyup", function (event) {
@@ -67,12 +52,7 @@ class InputHeader extends Component {
     }
 
     render() {
-        let btn;
-        if (this.state.testEnv) {
-            btn = <button id="search-btn" onClick={() => this.runSearchWithMockData(this.state.mockData)}>Search</button>
-        } else {
-            btn = <button id="search-btn" onClick={this.runSearch}>Search</button>
-        }
+        let btn = <button id="search-btn" onClick={this.runSearch}>Search</button>
         return (
             <div className="search-container">
                 <div className="search-parameter-container">
