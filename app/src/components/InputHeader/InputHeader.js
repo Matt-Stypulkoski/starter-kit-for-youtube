@@ -74,7 +74,7 @@ class InputHeader extends Component {
             <div className="search-container">
                 <div className="search-parameter-container">
                     <label className="search-parameter-label" htmlFor="search-keyword">search term:</label>
-                    <input className="search-parameter-input" type="text" id="search-keyword" placeholder="Input Keyword Here" defaultValue="nuzlocke" />
+                    <input className="search-parameter-input" type="text" id="search-keyword" placeholder="Input Keyword Here" />
                 </div>
                 <DateInput />
                 <RegionSelection  />
