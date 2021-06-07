@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 function youtubeSearch(searchParams) {
-    // For now if no keyword is given, send an alert to browser. Need to change in future.
     /*
     searchParams = {
         <string> q,
@@ -11,10 +10,6 @@ function youtubeSearch(searchParams) {
     }
     */
     let keyword = searchParams.q;
-    if (keyword === "") {
-        return Promise.reject(new Error("You must input a keyword to search for."))
-    }
-
     let publishedBefore = (searchParams.publishedBefore !== '') ? new Date(searchParams.publishedBefore).toISOString() : new Date().toISOString();
     let publishedAfter = (searchParams.publishedAfter !== '') ? new Date(searchParams.publishedAfter).toISOString() : '1970-01-01T00:00:00Z';
 

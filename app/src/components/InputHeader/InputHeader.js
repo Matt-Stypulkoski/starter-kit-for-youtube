@@ -17,9 +17,12 @@ class InputHeader extends Component {
         };
     }
 
-    runSearch() {
-        this.props.isSearching();
+    runSearch() {    
         const keyword = document.getElementById("search-keyword").value;
+        if (keyword === "") {
+            return alert("You must input a keyword to search for.");
+        }
+        this.props.isSearching();
         this.setState({ keyword: keyword });
         let regionCode = document.getElementById("region-select").value;
         const publishedAfter = document.getElementById("published-after").value;
