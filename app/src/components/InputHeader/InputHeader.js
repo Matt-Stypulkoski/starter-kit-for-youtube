@@ -8,7 +8,7 @@ class InputHeader extends Component {
     constructor(props) {
         super(props)
         this.runSearch = this.runSearch.bind(this);
-        this.fireOnEnter = this.fireOnEnter.bind(this);;
+        this.fireOnEnter = this.fireOnEnter.bind(this);
     }
 
     runSearch() {    
@@ -40,7 +40,7 @@ class InputHeader extends Component {
     fireOnEnter() {
         let input = document.getElementById("search-keyword");
         input.addEventListener("keyup", function (event) {
-            if (event.keyCode === 13) {
+            if (event.key === 'Enter' || event.code === 'Enter') {
                 event.preventDefault();
                 document.getElementById("search-btn").click();
             }
