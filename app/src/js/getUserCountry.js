@@ -1,3 +1,5 @@
+// ***********Does not work in production***********
+
 import axios from 'axios'
 
 export default async function getUserCountry(cancelToken) {

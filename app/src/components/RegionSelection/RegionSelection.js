@@ -1,32 +1,14 @@
 import { React, Component } from 'react';
-import axios from 'axios';
-import getUserCountry from '../../js/getUserCountry.js';
 const contentRegions = require('../../data/contentRegions.json');
-
-
-let cancelToken = axios.CancelToken.source();
 
 class RegionSelection extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentRegion: null,
+            currentRegion: 'United States',
             regionList: contentRegions,
-            regionCode: null,
+            regionCode: 'US',
         }
-    }
-
-    componentDidMount() {
-        getUserCountry(cancelToken).then(res => {
-            this.setState({
-                currentRegion: res.country,
-                regionCode: res.code
-            });
-        })
-    }
-
-    componentWillUnmount() {
-        cancelToken.cancel();
     }
 
     render() {
